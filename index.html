@@ -1,0 +1,34 @@
+<div class="desktop">
+    <iframe src="https://docs.google.com/spreadsheets/d/126A95KCgWVsGoIrHRmlEfa6tKAhz-8bcaX6r6zd8wes/edit#gid=0"></iframe>
+</div>
+<div class="mobile">
+    <iframe src="https://docs.google.com/spreadsheets/d/e/126A95KCgWVsGoIrHRmlEfa6tKAhz-8bcaX6r6zd8wes/pubhtml"></iframe>
+</div>
+<style>
+    iframe {
+        width: 100%;
+        height: 75vh;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    .footer {
+        padding-top: 20px;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    @media only screen and (max-width:1023px) {
+        .desktop {
+            display: none;
+        }
+
+        .mobile {
+            display: block;
+        }
+    }
+</style>
