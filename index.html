@@ -1,6 +1,5 @@
 <head>
     <title>Scott Horvath's Homepage</title>
-    <!-- set this for mobile, make it bigger -->
     <meta name="viewport" content="width=device-width, initial-scale=1.5">
 </head>
 
@@ -11,8 +10,8 @@
 </div>
 <div class="mobile">
     <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTkBVZAR88yL3-eANLLuT6hi4A12-PwzehlHRA61yc5ELAjDlz9w6GaFkzPeR4RtO_3bF4_AWIA_czw/pubhtml"></iframe>
-    
 </div>
+
 <style>
     iframe {
         width: 100%;
@@ -21,6 +20,7 @@
 
     body {
         margin: 0;
+        padding-top: 20px; /* Adding padding to the body */
     }
 
     .mobile {
@@ -28,10 +28,12 @@
     }
 
     @media only screen and (max-width:1023px) {
+        body {
+            padding-top: 0; /* Remove padding in mobile view */
+        }
         .desktop {
             display: none;
         }
-
         .mobile {
             display: block;
         }
