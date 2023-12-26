@@ -6,6 +6,8 @@ For the last 18 months the Walmer Street Bridge has been closed <a href="https:/
 
 ![Example Deviation]({{ '/2023/2023-12-26-img01.png' | relative_url }}) 
 
+![alt text]({{"/2023/2023-12-26-img01.png" | absolute_url}})
+
 {% comment %}
 Might you have an include in your theme? Why not try it here!
 {% include my-themes-great-include.html %}
