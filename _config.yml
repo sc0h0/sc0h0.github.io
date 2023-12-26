@@ -6,7 +6,7 @@ remote_theme: sc0h0/oinam-jekyll
 # you can leave both of them blank if you are deploying on a top-level domain.
 # need to set to same url otherwise framework thinks you are opening an external link and it will open in a new tab
 url: https://www.horvathscott.com
-baseurl: /sc0h0
+baseurl: /sc0h0.github.io
 
 # footer
 footer:
