@@ -2,7 +2,7 @@
 layout: post
 ---
 
-Eos eu docendi tractatos sapientem, brute option menandri in vix, quando vivendo accommodare te ius. Nec melius fastidii constituam id, viderer theophrastus ad sit, hinc semper periculis cum id. Noluisse postulant assentior est in, no choro sadipscing repudiandae vix. Vis in euismod delenit dignissim. Ex quod nostrum sit, suas decore animal id ius, nobis solet detracto quo te.
+For the last 18 months the Walmer Street Bridge has been closed <a href="https://bicyclenetwork.com.au/newsroom/2023/12/20/walmer-street-bridge-ready-to-re-open/">(until recently)</a>. While it was closed the detour added around 10 minutes to my ride to work. The closure and detour got me thinking about all the different (DISTINCT) routes that I have historically ridden to work. 
 
 ![title)](https://picsum.photos/1000/600)
 
