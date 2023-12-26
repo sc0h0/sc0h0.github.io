@@ -13,9 +13,11 @@ Before we can determine whether a route deviation constitutes an entirely differ
 Let's start with a simple example: my lunchtime walk to ~~Safeway~~ Woolworths.
 
 Typically, I would walk the following route, where I would initally head west on Collins Street and turn north onto Merchant St.
+
 ![Typical walk to Woolworths](/assets/2023-12-26-img02.png) 
 
 Sometimes, but very rarely, I would walk West on Collins St, turn right on Import Lane and left along a pedestrian alley. 
+
 ![Rare route to Woolworths](/assets/2023-12-26-img03.png) 
 
 
