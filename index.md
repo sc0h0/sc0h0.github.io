@@ -8,16 +8,8 @@
 layout: page
 ---
 
-This is the demo and documentation for Oinam Jekyll Theme. The [Styleguide]({{ site.baseurl | prepend: site.url }}/styleguide/) has the demonstation of all content features and options you can use. I wrote [an article](https://brajeshwar.com/2021/brajeshwar.com-2021/) about how and why I built this Jekyll Theme.
+My name is Scott Horvath. This is the beginning of my page so I can't really summarise what you will expect to find here. However, please feel free to view my <a href="/blog/">blog</a> in the meantime.
 
 > The [source](https://github.com/oinam/oinam-jekyll) is hosted on Github and you can [download](https://github.com/oinam/oinam-jekyll/archive/refs/heads/main.zip) a zipped version of the source code.
 
 ---
-
-## Installation
-
-There are three ways of using Oinam Jekyll Theme;
-
-1. Remote Theme
-2. Template
-3. Ruby Gem
