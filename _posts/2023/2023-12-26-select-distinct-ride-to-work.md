@@ -12,4 +12,6 @@ Before we can determine whether a route deviation constitutes an entirely differ
 
 Let's start with a simple example: my lunchtime walk to Woolworths.
 
+Typically, I would walk the following route.
+
 
