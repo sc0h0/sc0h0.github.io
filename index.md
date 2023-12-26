@@ -8,6 +8,6 @@
 layout: page
 ---
 
-My name is Scott Horvath. This is the beginning so I can't really summarise what you can expect to find here. However, please feel free to view my <a href="/blog/">blog</a> in the meantime.
+My name is Scott Horvath. This is the early days of my page so I can't really summarise what you can expect to find here. However, please feel free to view my <a href="/blog/">blog</a> in the meantime.
 
 ---
