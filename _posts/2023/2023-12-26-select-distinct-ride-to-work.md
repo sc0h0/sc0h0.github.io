@@ -6,7 +6,7 @@ For the last 18 months the Walmer Street Bridge has been closed <a href="https:/
 
 ![Example Deviation](/_posts/2023/2023-12-26-img01.png) 
 
-![alt text]({{"/2023/2023-12-26-img01.png" | absolute_url}})
+![alt text]('https://github.com/sc0h0/sc0h0.github.io/blob/main/_posts/2023/2023-12-26-img01.png')
 
 ![alt text]({{ site.url }}/{{site.baseurl}}/2023/2023-12-26-img01.png)
 
