@@ -4,8 +4,7 @@ remote_theme: oinam/oinam-jekyll
 
 # Set this to your domain; baseurl is for the folder in your domain, if you have one -- `blog`.
 # you can leave both of them blank if you are deploying on a top-level domain.
-url: https://oinam.github.io
-baseurl: /oinam-jekyll
+url: https://sc0h0.github.io
 
 # footer
 footer:
@@ -43,10 +42,6 @@ permalink: /:title/
 sass:
   style: compressed # nested, compact, expanded or compressed
   sourcemap: never
-
-plugins:
- - jekyll-optional-front-matter # https://github.com/benbalter/jekyll-optional-front-matter
- - jekyll-titles-from-headings # https://github.com/benbalter/jekyll-titles-from-headings/
 
 defaults:
   - scope:
