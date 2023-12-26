@@ -6,6 +6,7 @@ remote_theme: sc0h0/oinam-jekyll
 # you can leave both of them blank if you are deploying on a top-level domain.
 # need to set to same url otherwise framework thinks you are opening an external link and it will open in a new tab
 url: https://www.horvathscott.com
+>>>>>>> b23c96ce96d0e05ea3785c61ee9ec0194f8760e2
 
 # footer
 footer:
@@ -44,6 +45,10 @@ sass:
   style: compressed # nested, compact, expanded or compressed
   sourcemap: never
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> b23c96ce96d0e05ea3785c61ee9ec0194f8760e2
 defaults:
   - scope:
       path: '_posts'
