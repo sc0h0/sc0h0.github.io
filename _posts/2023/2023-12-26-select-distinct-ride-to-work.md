@@ -37,9 +37,3 @@ Sometimes, though very rarely, I would walk west on Collins St, turn right onto 
 
 These two routes can be represented as sequences of four pairs of latitude and longitude coordinates.
 
-Sequence| Latitude               | Longitude               | Title 4
-----------------------------| --------------------- | --------------------- | ---------------------
-1| lorem ipsum           | lorem ipsum dolor     | lorem ipsum dolor sit
-2| lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit
-3| lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit
-4| lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit
