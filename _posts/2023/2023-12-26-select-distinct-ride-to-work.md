@@ -7,16 +7,22 @@ For the last 18 months the Walmer Street Bridge has been closed <a href="https:/
 For instance, consider a morning when I take a slightly different path from my usual route, a variation I refer to as the 'Deviation'. Does this minor deviation qualify as an entirely new way of commuting to work? What if I briefly rode on the wrong side of the road for just 10 meters. While technically this is a different route, practically it's not significantly distinct from my usual route.
 
 ![Example Deviation](/assets/2023-12-26-img01.png) 
+<figure>
+  <img src="/assets/2023-12-26-img01.png" alt="Example Deviation" loading="lazy">
+  <figcaption>
+    A deviation (red) from typical route to work (blue). The deviation is a shortcut along a sandy section along the Yarra River.
+  </figcaption>
+</figure>
 
 Before we can determine whether a route deviation constitutes an entirely different route, we need the ability to objectively differentiate between routes, preferably in a programmable way.
 
 Let's start with a simple example: my lunchtime walk to ~~Safeway~~ Woolworths.
 
-Typically, I would walk the following route, where I would initally head west on Collins Street and turn north onto Merchant St.
+Typically, my route involves initially heading west on Collins Street and then turning north onto Merchant Street.
 
 ![Typical walk to Woolworths](/assets/2023-12-26-img02.png) 
 
-Sometimes, but very rarely, I would walk West on Collins St, turn right on Import Lane and left along a pedestrian alley. 
+Sometimes, though very rarely, I would walk west on Collins St, turn right onto Import Lane, and then take a left along a pedestrian alley.
 
 ![Rare route to Woolworths](/assets/2023-12-26-img03.png) 
 
