@@ -26,7 +26,7 @@ Typically, my route involves initially heading west on Collins Street and then t
   </figcaption>
 </figure>
 
-Sometimes, though very rarely, I would walk west on Collins St, turn right onto Import Lane, and then take a left along a Pedestrian alley.
+Sometimes, though very rarely, I would walk west on Collins St, turn right onto Import Lane, and then take a left along a pedestrian alley.
 
 <figure>
   <img src="/assets/2023-12-26-img03.png" alt="Rare route to Woolworths" loading="lazy">
