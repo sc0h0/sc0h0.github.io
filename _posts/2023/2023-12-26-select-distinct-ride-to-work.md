@@ -6,9 +6,6 @@ For the last 18 months the Walmer Street Bridge has been closed <a href="https:/
 
 For instance, consider a morning when I take a slightly different path from my usual route, a variation I refer to as the 'Deviation'. Does this minor deviation qualify as an entirely new way of commuting to work? What if I briefly rode on the wrong side of the road for just 10 meters. While technically this is a different route, practically it's not significantly distinct from my usual route.
 
-![Example Deviation](/assets/2023-12-26-img01.png)
-<figcaption>A deviation (red) from typical route to work (blue). The deviation is a shortcut along a sandy section along the Yarra River</figcaption>
-
 <figure>
   <img src="/assets/2023-12-26-img01.png" alt="Example Deviation" loading="lazy">
   <figcaption>
