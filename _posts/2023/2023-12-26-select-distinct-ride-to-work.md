@@ -38,9 +38,9 @@ Sometimes, though very rarely, I would walk west on Collins St, turn right onto 
 These two routes can be represented as sequences of four pairs of latitude and longitude coordinates.
 
 <figure>
-  <img src="/assets/2023-12-26-img03.png" alt="Rare route to Woolworths" loading="lazy">
+  <img src="/assets/2023-12-26-img04.png" alt="Both routes shown as four pairs of latitude and longitude coordinates." loading="lazy">
   <figcaption>
-    My less-travelled walking route from the office to Woolworths, overlaid in red as the 'Alternative Route', with the regular route shown in blue.
+    Original and Alternative routes being represented as a sequence of four latitude-longitude pairs.
   </figcaption>
 </figure>
 
