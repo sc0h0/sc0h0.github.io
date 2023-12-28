@@ -48,7 +48,7 @@ These two routes can be represented as sequences of four pairs of latitude and l
 
 To determine whether two routes are identical, or to quantify their differences if they are not, we can use the Lock-step Euclidean Distance (LSED). To visualise the calculation of this distance, we first compute the 'as-the-bird-flies' distance between corresponding points on each route. These distances are then squared, summed, and finally, the square root is taken.
 
-In the example below, the LSED is calculated to be 112 meters. As expected, the LSED is non-zero, primarily because sequence point 3 is located at different positions in each route, while all other sequence points are identical.
+In the route below, the LSED is calculated to be 112 meters. As expected, the LSED is non-zero, primarily because sequence point 3 is located at different positions in each route, while all other sequence points are identical.
 
 <figure>
   <img src="/assets/2023-12-26-img05.png" alt="Lock-step Euclidean Distance (LSED)" loading="lazy">
@@ -56,3 +56,7 @@ In the example below, the LSED is calculated to be 112 meters. As expected, the 
     The calculation of the Lock-step Euclidean Distance (LSED). 
   </figcaption>
 </figure>
+
+This all seems pretty straightforward; however, what happens when one route has more sequence points than the other?
+
+### Example 2: My complicated lunchtime walk to ~~Safeway~~ Woolworths
