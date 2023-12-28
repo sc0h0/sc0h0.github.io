@@ -16,7 +16,6 @@ For instance, consider a morning when I take a slightly different path from my u
 Before we can determine whether a route deviation constitutes an entirely different route, we need the ability to objectively differentiate between routes, preferably in a programmable way.
 
 ### Example 1: My lunchtime walk to ~~Safeway~~ Woolworths
-Let's start with a simple example: my lunchtime walk to ~~Safeway~~ Woolworths.
 
 Typically, my route involves initially heading west on Collins Street and then turning north onto Merchant Street.
 
@@ -37,4 +36,11 @@ Sometimes, though very rarely, I would walk west on Collins St, turn right onto 
 </figure>
 
 These two routes can be represented as sequences of four pairs of latitude and longitude coordinates.
+
+<figure>
+  <img src="/assets/2023-12-26-img03.png" alt="Rare route to Woolworths" loading="lazy">
+  <figcaption>
+    My less-travelled walking route from the office to Woolworths, overlaid in red as the 'Alternative Route', with the regular route shown in blue.
+  </figcaption>
+</figure>
 
