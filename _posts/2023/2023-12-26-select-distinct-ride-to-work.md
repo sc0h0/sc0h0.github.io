@@ -59,4 +59,5 @@ In the route below, the LSED is calculated to be 112 meters. As expected, the LS
 
 This all seems pretty straightforward; however, what happens when one route has more sequence points than the other?
 
-### Example 2: My complicated lunchtime walk to ~~Safeway~~ Woolworths
+### Example 2: My complicated lunchtime walk to Woolworths
+
