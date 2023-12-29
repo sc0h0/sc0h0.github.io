@@ -61,7 +61,7 @@ This all seems pretty straightforward; however, what happens when one route has 
 
 ### Example 2: My complicated lunchtime walk to Woolworths
 
-In this example, the alternative route involves first heading north and weaving my way through the buildings, totalling six route sequence points.
+In this example, the alternative route involves first heading north and weaving through the buildings, totalling six route sequence points.
 
 <figure>
   <img src="/assets/2023-12-26-img06.png" alt="" loading="lazy">
