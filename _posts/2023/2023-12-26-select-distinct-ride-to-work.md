@@ -64,9 +64,20 @@ This all seems pretty straightforward; however, what happens when one route has 
 In this example, the alternative route involves first heading north and weaving my way through the buildings, totalling six route sequence points.
 
 <figure>
-  <img src="/assets/2023-12-26-img06.png" alt="Lock-step Euclidean Distance (LSED)" loading="lazy">
+  <img src="/assets/2023-12-26-img06.png" alt="" loading="lazy">
   <figcaption>
-    The calculation of the Lock-step Euclidean Distance (LSED). 
+    The complicated alternative route requires six sequence points.
   </figcaption>
 </figure>
+
+If we attempt to calculate the LSED as we did in Example 1, we naturally start by comparing corresponding points:
+- Point 1 of the original route to point 1 of the alternative route
+- Point 2 of the original to point 2 of the alternative
+- Point 3 of the original to point 3 of the alternative
+- Point 4 of the original to point 4 of the alternative
+  
+However, what happens when there is no corresponding point 5 in the original route to compare with point 5 of the alternative route? The same issue arises for point 6 of the alternative route. 
+
+As the name suggests, the Lock-step Euclidean Distance breaks down because the points are no longer in 'lock-step'.
+
 
