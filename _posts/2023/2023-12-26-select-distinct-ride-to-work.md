@@ -80,4 +80,8 @@ However, what happens when there is no corresponding point 5 in the original rou
 
 As the name suggests, the Lock-step Euclidean Distance breaks down because the points are no longer in 'lock-step'.
 
+### Introducing Dynamic Time Warping (DTW)
+
+As we've seen in Example 2, we have identified a shortcoming of the Lock-step Euclidean Distance approach in determining whether two routes are identical, especially when one route comprises a different number of points. As an alternative, the Dynamic Time Warping (DTW) algorithm can be employed, which calculates the cost of aligning two routes, even if they vary in number of route points.
+
 
