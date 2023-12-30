@@ -97,5 +97,5 @@ To demonstrate how the DTW algorithm works, let's consider a simple application:
   </figcaption>
 </figure>
 
-The first step of the algorithm is to construct a matrix of all posible Euclidian
+The first step of the algorithm is to construct a matrix of all posible squared distances between each points of the birds' flight paths. Then, starting at the bottom left corner of the matrix, we move to the top right corner of the matrix while minimising the sum of the squared distances (i.e., the values in each cell of the matrix). The path (highlighted in yellow) represents the pairs of points of each respective bird flight path that are to be aligned. It's worth noting at this point there are other possible ways of aligning the two birds' flight paths, however, we need a consistant approach to aligning the paths (that is, minimising the squared distances) so that we can consistenty compare any pair of flight paths.
 
