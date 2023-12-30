@@ -46,7 +46,7 @@ These two routes can be represented as sequences of four pairs of latitude and l
   </figcaption>
 </figure>
 
-To determine whether two routes are identical, or to quantify their differences if they are not, we can use the Lock-step Euclidean Distance (LSED). To visualise the calculation of this distance, we first compute the 'as-the-bird-flies' distance between corresponding points on each route. These distances are then squared, summed, and finally, the square root is taken.
+To determine whether two routes are identical, or to quantify their differences if they are not, we can use the Lock-step Euclidean Distance (LSED)*. To visualise the calculation of this distance, we first compute the 'as-the-bird-flies' distance between corresponding points on each route. These distances are then squared, summed, and finally, the square root is taken.
 
 In the route below, the LSED is calculated to be 112 meters. As expected, the LSED is non-zero, primarily because sequence point 3 is located at different positions in each route, while all other sequence points are identical.
 
@@ -58,6 +58,8 @@ In the route below, the LSED is calculated to be 112 meters. As expected, the LS
 </figure>
 
 This all seems pretty straightforward; however, what happens when one route has more sequence points than the other?
+
+*Note that technically this is not the Euclidean distance but the "geodesic distance" which measures the distance between two points on the Earth's surface. The basic idea still applies.
 
 ### Example 2: My complicated lunchtime walk to Woolworths
 
@@ -84,16 +86,16 @@ As the name suggests, the Lock-step Euclidean Distance breaks down because the p
 
 In Example 2, we identified a limitation of the Lock-step Euclidean Distance approach in that it is unable to effectively handle cases where one route has a different number of points compared to another.
 
-As an alternative, the Dynamic Time Warping (DTW) algorithm can be employed, which calculates the (minimum) cost of aligning two routes, even if they vary in number of route points. In this case, the cost of aligning the two routes becomes our objective way of measuring how similar or dissimilar two routes are.
+As an alternative, the Dynamic Time Warping (DTW) algorithm can be employed, which calculates the (minimum) cost of aligning two routes, even if they vary in number of route points. In this case, the cost of aligning the two routes becomes our method of measuring how similar or dissimilar two routes are.
 
 To demonstrate how the DTW algorithm works, let's consider a simple application: comparing the flight paths of two birds in the sky. To simplify further, we will assume that the coordinate space is an x-y plane and the birds maintain the same altitude during their flight. Bird 1 follows flight path 1, while bird 2 follows flight path 2.
 
 <figure>
   <img src="/assets/2023-12-26-img07.png" alt="" loading="lazy">
   <figcaption>
-    The flight paths of two birds (bird 1 and bird 2) travelling at the same altitude.
+    The flight paths of two birds (bird 1 and bird 2) travelling at the same altitude. "Point" = "Pt" for brevity.
   </figcaption>
 </figure>
 
-
+The first step of the algorithm is to construct a matrix of all posible Euclidian
 
