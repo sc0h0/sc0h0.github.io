@@ -82,9 +82,18 @@ As the name suggests, the Lock-step Euclidean Distance breaks down because the p
 
 ### Introducing Dynamic Time Warping (DTW)
 
-As we've seen in Example 2, we have identified a shortcoming of the Lock-step Euclidean Distance approach in determining whether two routes are identical, especially when one route comprises a different number of points. 
+In Example 2, we identified a limitation of the Lock-step Euclidean Distance approach in that it is unable to effectively handle cases where one route has a different number of points compared to another.
 
-As an alternative, the Dynamic Time Warping (DTW) algorithm can be employed, which calculates the cost of aligning two routes, even if they vary in number of route points. In this case, the cost of aligning the two routes becomes our objective way of measuring how similar or dissimilar two routes are.
+As an alternative, the Dynamic Time Warping (DTW) algorithm can be employed, which calculates the (minimum) cost of aligning two routes, even if they vary in number of route points. In this case, the cost of aligning the two routes becomes our objective way of measuring how similar or dissimilar two routes are.
+
+To demonstrate how the DTW algorithm works, let's consider a simple application: comparing the flight paths of two birds in the sky. To simplify further, we will assume that the coordinate space is an x-y plane and the birds maintain the same altitude during their flight. Bird 1 follows flight path 1, while bird 2 follows flight path 2.
+
+<figure>
+  <img src="/assets/2023-12-26-img07.png" alt="" loading="lazy">
+  <figcaption>
+    The flight paths of two birds (bird 1 and bird 2) travelling at the same altitude.
+  </figcaption>
+</figure>
 
 
 
