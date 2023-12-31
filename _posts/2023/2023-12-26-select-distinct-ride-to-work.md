@@ -97,7 +97,9 @@ To demonstrate how the DTW algorithm works, let's consider a simple application:
   </figcaption>
 </figure>
 
-The first step of the algorithm is to construct a matrix of all possible squared distances between each point on the birds' flight paths. Then, starting at the bottom-left corner of the matrix, we move towards the top-right corner while minimising the sum of the squared distances (i.e., the values in each cell of the matrix). The path, highlighted in yellow, represents the pairs of points from each respective bird's flight path that are to be aligned.
+The first step of the algorithm is to construct a matrix of all possible squared distances between each point on the birds' flight paths. Then, starting at the bottom-left corner of the matrix, we move towards the top-right corner while minimising the sum of the squared distances (i.e., the values in each cell of the matrix). The path, highlighted in yellow, represents the pairs of points from each respective bird's flight path that are to be aligned. **The cost of aligning these points corresponds to how similar the two flight paths are.**
+
+There are a few additional rules to the DTW algorithm which are covered <a href="https://www.tandfonline.com/doi/full/10.1080/15481603.2021.1908927">here</a>. 
 
 <figure>
   <img src="/assets/2023-12-26-img08.png" alt="" loading="lazy">
