@@ -97,7 +97,7 @@ To demonstrate how the DTW algorithm works, let's consider a simple application:
   </figcaption>
 </figure>
 
-The first step of the algorithm is to construct a matrix of all possible squared distances between each point on the birds' flight paths. Then, starting at the bottom-left corner of the matrix, we move towards the top-right corner while minimising the sum of the squared distances (i.e., the values in each cell of the matrix). The path, highlighted in yellow, represents the pairs of points from each respective bird's flight path that are to be aligned. **The cost of aligning these points corresponds to how similar the two flight paths are.**
+The first step of the algorithm is to construct a matrix of all possible squared distances between each point on the birds' flight paths. Then, starting at the bottom-left corner of the matrix, we move towards the top-right corner while minimising the sum of the squared distances (i.e., the values in each cell of the matrix). The path, highlighted in the yellow matrix cells, represents the pairs of points from each respective bird's flight path that are to be aligned. The cost of aligning these points corresponds to how similar the two flight paths are.
 
 There are a few additional rules to the DTW algorithm which are covered <a href="https://www.tandfonline.com/doi/full/10.1080/15481603.2021.1908927">here</a>. 
 
@@ -106,6 +106,15 @@ There are a few additional rules to the DTW algorithm which are covered <a href=
   <figcaption>
     A matrix containing squared distances between each point on the birds' flight path.
   </figcaption>
-</figure>
+</figure
 
-It's worth noting at this point that there are other possible ways of aligning the two birds' flight paths. However, we need a consistent approach to aligning the paths — that is, minimising the squared distances — so that we can consistently compare any pair of flight paths.
+We can also visualise which points are aligned by the DTW algorithm by drawing a dashed yellow line between them. It's worth noting at this point that there are other possible ways of aligning the two birds' flight paths. However, we need a consistent approach to aligning the paths — that is, minimising the squared distances — so that we can consistently compare any pair of flight paths.
+
+<figure>
+  <img src="/assets/2023-12-26-img10.png" alt="" loading="lazy">
+  <figcaption>
+    Points aligned by the DTW algorithm have a dashed yellow line drawn between them.
+  </figcaption>
+</figure
+
+
