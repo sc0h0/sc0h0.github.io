@@ -117,4 +117,14 @@ We can also visualise which points are aligned by the DTW algorithm by drawing a
   </figcaption>
 </figure>
 
+Now that we have a good understanding of the DTW algorithm and its ability to programmatically determine the similarity between two flight paths (or routes), let's apply it to actual route data that I've captured using Strava while riding my bike to work.
+
+### Preparing Bike Route Data
+
+I've been using Strava since around 2010 and so there are many other bike ride activities captured which don't start from my current home address and end at my current work address. To give DTW the best shot at assessing route similarity, routes that don't start within a 100 meter radius of my current home address and end within a 200 meter radius of my current work address will be excluded from the dataset. 
+
+Fortunately, Strava makes it very easy to <a href="https://support.strava.com/hc/en-us/articles/216918437-Exporting-your-Data-and-Bulk-Export">download your entire activity history</a>  and applying my filter reduces my number of activities from 
+
+
+
 
