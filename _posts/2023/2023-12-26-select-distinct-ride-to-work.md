@@ -115,6 +115,6 @@ We can also visualise which points are aligned by the DTW algorithm by drawing a
   <figcaption>
     Points aligned by the DTW algorithm have a dashed yellow line drawn between them.
   </figcaption>
-</figure
+</figure>
 
 
