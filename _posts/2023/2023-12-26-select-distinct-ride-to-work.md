@@ -111,7 +111,7 @@ There are a few additional rules to the DTW algorithm which are covered <a href=
 We can also visualise which points are aligned by the DTW algorithm by drawing a dashed yellow line between them. It's worth noting at this point that there are other possible ways of aligning the two birds' flight paths. However, we need a consistent approach to aligning the paths — that is, minimising the squared distances — so that we can consistently compare any pair of flight paths.
 
 <figure>
-  <img src="/assets/2023-12-26-img10.png" alt="" loading="lazy">
+  <img src="/assets/2023-12-26-img09.png" alt="" loading="lazy">
   <figcaption>
     Points aligned by the DTW algorithm have a dashed yellow line drawn between them.
   </figcaption>
