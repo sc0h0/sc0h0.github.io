@@ -59,7 +59,7 @@ In the route below, the LSED is calculated to be 112 meters. As expected, the LS
 
 This all seems pretty straightforward; however, what happens when one route has more sequence points than the other?
 
-*Note that technically this is not the Euclidean distance but the "geodesic distance" which measures the distance between two points on the Earth's surface. The basic idea still applies.
+\*Note that technically this is not the Euclidean distance but the "geodesic distance" which measures the distance between two points on the Earth's surface. The basic idea still applies.
 
 ### Example 2: My complicated lunchtime walk to Woolworths
 
