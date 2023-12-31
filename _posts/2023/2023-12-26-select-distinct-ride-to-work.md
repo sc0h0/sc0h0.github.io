@@ -121,9 +121,11 @@ Now that we have a good understanding of the DTW algorithm and its ability to pr
 
 ### Preparing Bike Route Data
 
-I've been using Strava since around 2010 and so there are many other bike ride activities captured which don't start from my current home address and end at my current work address. To give DTW the best shot at assessing route similarity, routes that don't start within a 100 meter radius of my current home address and end within a 200 meter radius of my current work address will be excluded from the dataset. 
+Strava makes it very easy to <a href="https://support.strava.com/hc/en-us/articles/216918437-Exporting-your-Data-and-Bulk-Export">download your entire activity history</a>.
 
-Fortunately, Strava makes it very easy to <a href="https://support.strava.com/hc/en-us/articles/216918437-Exporting-your-Data-and-Bulk-Export">download your entire activity history</a>  and applying my filter reduces my number of activities from 
+I’ve been using Strava since around 2010, resulting in many bike ride activities that don’t start from my current home address or end at my current work address. To give the DTW algorithm the best chance at accurately assessing route similarity, I will exclude routes from the dataset that don't start within a 100 meter radius of my current home and end within a 200 meter radius of my current workplace.
+
+Applying this filter reduces my number of activities from 
 
 
 
