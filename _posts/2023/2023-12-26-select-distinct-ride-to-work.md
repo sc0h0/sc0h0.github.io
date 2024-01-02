@@ -132,9 +132,13 @@ Upon visually inspecting these routes displayed on a map, we can identify some c
 <figure>
   <img src="/assets/2023-12-26-img010.png" alt="" loading="lazy">
   <figcaption>
-    Points aligned by the DTW algorithm have a dashed yellow line drawn between them.
+    300 routes displayed on a map
   </figcaption>
 </figure>
+
+### Applying the DTW Algorithm
+
+
 
 
 
