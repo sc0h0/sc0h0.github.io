@@ -130,7 +130,7 @@ I will also remove any data points from the routes that fall within a 200 meter 
 Upon visually inspecting these routes displayed on a map, we can identify some common routes that I tend to take.
 
 <figure>
-  <img src="/assets/2023-12-26-img010.png" alt="" loading="lazy">
+  <img src="/assets/2023-12-26-img10.png" alt="" loading="lazy">
   <figcaption>
     300 routes displayed on a map
   </figcaption>
