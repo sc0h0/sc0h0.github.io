@@ -138,7 +138,7 @@ Upon visually inspecting these routes displayed on a map, we can identify some c
 
 ### Applying the DTW Algorithm
 
-Now that the route data, including 300 historical routes, is ready, we can start applying the DTW algorithm. I should call out that a <a href="https://alphasldiallo.github.io/dynamic-time-warping-algorithm-for-trajectories-similarity/"> helpful write-up and sample implementation code</a> made it easier for me to implement the algorithm myself.
+Now that we have 300 historical routes ready for analysis, we can begin applying the DTW algorithm. I also want to acknowledge a <a href="https://alphasldiallo.github.io/dynamic-time-warping-algorithm-for-trajectories-similarity/"> helpful write-up and sample code</a> that made it easier to put this algorithm into practice.
 
 Before we run DTW across all the data, let's test how it performs on two similar but slightly different ride to work.
 
@@ -149,7 +149,7 @@ Before we run DTW across all the data, let's test how it performs on two similar
   </figcaption>
 </figure>
 
-Given that the objective function of the DTW algorithm is to align all points with as minimal cost as possible, we can visually represent this by a matrix containing the distance between all points along both routes. In the matrix below, there are too many distance values to show (approximately 160 x 160 matrix cells) and so a colour gradient has been used instead. Black represents large distance between two points of from different routes and white is short distance between two points of from different routes. 
+Given that the DTW algorithm's objective is to align all points with minimal cost, we can visually represent this with a matrix containing the distances between all points along both routes. In the matrix below, there are too many distance values to show (approximately 160 x 160 matrix cells) so a colour gradient has been used instead. Dark areas represent a large distance between two points from different routes and lighter areas indicate short distances between points from different routes. 
 
 Aligning both routes can be achieved with minimal 'cost' by 
 
