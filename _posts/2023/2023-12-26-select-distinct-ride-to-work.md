@@ -122,7 +122,7 @@ Now that we have a good understanding of the DTW algorithm and its ability to pr
 ### Preparing Bike Route Data
 Strava makes it very easy to <a href="https://support.strava.com/hc/en-us/articles/216918437-Exporting-your-Data-and-Bulk-Export">bulk download your entire activity history</a>.
 
-Since I've been using Strava from around 2010, I have numerous bike ride activities that neither start at my current home nor end at my current workplace. To optimise the DTW algorithm's ability to assess route similarity, I will include only those routes in the dataset that start within a 200 meter radius of my home and end within a 200 meter radius of my workplace. Applying this filter leaves us with data corresponding to around 300 rides to work.
+Since I've been using Strava from around 2010, I have numerous bike ride activities that neither start at my current home nor end at my current workplace. To optimise the DTW algorithm's ability to assess route similarity, I will include only those routes in the dataset that start within a 200 meter radius of my home and end within a 200 meter radius of my workplace. Applying this filter leaves us with data corresponding to around 200 rides to work.
 
 To improve the accuracy of the DTW algorithm and ensure privacy in this blog post, I will also remove data points from the routes that are within a 200 meter radius of both my home, workplace and gym, where GPS signals tend to be less reliable.
 
@@ -131,13 +131,13 @@ Upon visually inspecting these routes displayed on a map, we can identify some c
 <figure>
   <img src="/assets/2023-12-26-img10.png" alt="" loading="lazy">
   <figcaption>
-    300 routes displayed on a map
+    200 routes displayed on a map
   </figcaption>
 </figure>
 
 
 ### Testing the DTW Algorithm
-Now that we have 300 historical routes ready for analysis, we can begin applying the DTW algorithm. I also want to acknowledge a <a href="https://alphasldiallo.github.io/dynamic-time-warping-algorithm-for-trajectories-similarity/"> helpful write-up and sample code</a> that made it easier to put this algorithm into practice.
+Now that we have 200 historical routes ready for analysis, we can begin applying the DTW algorithm. I also want to acknowledge a <a href="https://alphasldiallo.github.io/dynamic-time-warping-algorithm-for-trajectories-similarity/"> helpful write-up and sample code</a> that made it easier to put this algorithm into practice.
 
 Before we run DTW across all the data, let's test how it performs on two similar but slightly different routes to work.
 
