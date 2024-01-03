@@ -140,7 +140,7 @@ Upon visually inspecting these routes displayed on a map, we can identify some c
 
 Now that the route data, including 300 historical routes, is ready, we can start applying the DTW algorithm. I should call out that a <a href="https://alphasldiallo.github.io/dynamic-time-warping-algorithm-for-trajectories-similarity/"> helpful write-up and sample implementation code</a> made it easier for me to implement the algorithm myself.
 
-Before we run DTW over all the data, let's test how it performs on two similar but slightly different ride to work.
+Before we run DTW across all the data, let's test how it performs on two similar but slightly different ride to work.
 
 <figure>
   <img src="/assets/2023-12-26-img11.png" alt="" loading="lazy">
@@ -149,4 +149,7 @@ Before we run DTW over all the data, let's test how it performs on two similar b
   </figcaption>
 </figure>
 
+Given that the objective function of the DTW algorithm is to align all points with as minimal cost as possible, we can visually represent this by a matrix containing the distance between all points along both routes. In the matrix below, there are too many distance values to show (approximately 160 x 160 matrix cells) and so a colour gradient has been used instead. Black represents large distance between two points of from different routes and white is short distance between two points of from different routes. 
+
+Aligning both routes can be achieved with minimal 'cost' by 
 
