@@ -145,11 +145,17 @@ Before we run DTW across all the data, let's test how it performs on two similar
 <figure>
   <img src="/assets/2023-12-26-img11.png" alt="" loading="lazy">
   <figcaption>
-    Two similar rides to work shown on a map.
+    A map showing two similar routes from home to work.
   </figcaption>
 </figure>
 
-Given that the DTW algorithm's objective is to align all points with minimal cost, we can visually represent this with a matrix containing the distances between all points along both routes. In the matrix below, there are too many distance values to show (approximately 160 x 160 matrix cells) so a colour gradient has been used instead. Dark areas represent a large distance between two points from different routes and lighter areas indicate short distances between points from different routes. 
+Given that the DTW algorithm's objective is to align all points with minimal cost, we can visually represent this with a matrix containing the distances between all points along both routes. In the matrix below, there are too many distance values to show (163 x 177 matrix cells) so a colour gradient has been used instead. Dark areas represent a large distance between two points from different routes and lighter areas indicate short distances between points from different routes. The optimal way to align both routes to one-another can be achieved with the alignment shown by the yellow line.
 
-Aligning both routes can be achieved with minimal 'cost' by 
+We can also see that the two routes generally track each other well except for a period where the blue route is the first to turn west off a street. This deviation can also be seen in the distance matrix.
 
+<figure>
+  <img src="/assets/2023-12-26-img12.png" alt="" loading="lazy">
+  <figcaption>
+    A deviation between two routes represented as a distance matrix between all points of both routes.
+  </figcaption>
+</figure>
