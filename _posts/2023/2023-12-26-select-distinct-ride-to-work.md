@@ -156,7 +156,7 @@ We can also see that the two routes generally track each other well except for a
 <figure>
   <img src="/assets/2023-12-26-img12.png" alt="" loading="lazy">
   <figcaption>
-    A deviation between two routes represented as a distance matrix between all points of both routes.
+    A deviation between two routes represented as a distance matrix between all points of both routes. Circled are deviations from almost-perfect alignment of the two routes.
   </figcaption>
 </figure>
 
