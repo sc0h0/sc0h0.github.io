@@ -120,7 +120,6 @@ We can also visualise which points are aligned by the DTW algorithm by drawing a
 Now that we have a good understanding of the DTW algorithm and its ability to programmatically determine the similarity between two flight paths (or routes), let's apply it to actual route data that I've captured using Strava while riding my bike to work.
 
 ### Preparing Bike Route Data
-
 Strava makes it very easy to <a href="https://support.strava.com/hc/en-us/articles/216918437-Exporting-your-Data-and-Bulk-Export">bulk download your entire activity history</a>.
 
 Since I've been using Strava from around 2010, I have numerous bike ride activities that neither start at my current home nor end at my current workplace. To optimise the DTW algorithm's ability to assess route similarity, I will include only those routes in the dataset that start within a 200 meter radius of my home and end within a 200 meter radius of my workplace. Applying this filter leaves us with data corresponding to around 300 rides to work.
@@ -136,8 +135,8 @@ Upon visually inspecting these routes displayed on a map, we can identify some c
   </figcaption>
 </figure>
 
-### Testing the DTW Algorithm
 
+### Testing the DTW Algorithm
 Now that we have 300 historical routes ready for analysis, we can begin applying the DTW algorithm. I also want to acknowledge a <a href="https://alphasldiallo.github.io/dynamic-time-warping-algorithm-for-trajectories-similarity/"> helpful write-up and sample code</a> that made it easier to put this algorithm into practice.
 
 Before we run DTW across all the data, let's test how it performs on two similar but slightly different routes to work.
@@ -168,5 +167,8 @@ In this example, the total distance required to align all points is 4.44km. In o
     The DTW distance (km) between the first 10 points of each route. Small phase shifts and GPS inaccuracy causes non-zero distances.
   </figcaption>
 </figure>
+
+### DTW Results
+
 
 
