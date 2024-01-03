@@ -136,7 +136,7 @@ Upon visually inspecting these routes displayed on a map, we can identify some c
   </figcaption>
 </figure>
 
-### Applying the DTW Algorithm
+### Testing the DTW Algorithm
 
 Now that we have 300 historical routes ready for analysis, we can begin applying the DTW algorithm. I also want to acknowledge a <a href="https://alphasldiallo.github.io/dynamic-time-warping-algorithm-for-trajectories-similarity/"> helpful write-up and sample code</a> that made it easier to put this algorithm into practice.
 
@@ -159,5 +159,7 @@ We can also see that the two routes generally track each other well except for a
     A deviation between two routes represented as a distance matrix between all points of both routes.
   </figcaption>
 </figure>
+
+In this example, the total 
 
 
