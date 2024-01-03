@@ -163,7 +163,7 @@ We can also see that the two routes generally track each other well except for a
 In this example, the total distance required to align all points is 4.44km. In other words, the similarity between the two routes is represented by a distance of 4.44km. I was expecting a smaller number; however, given that most points are not in phase, the distance needed to align the points is often non-zero. In the next section, we'll see that 4.44km is actually a relatively small distance for aligning all points between two routes.
 
 <figure>
-  <img src="/assets/2023-12-26-img13.png" alt="" loading="lazy">
+  <img src="/assets/2023-12-26-img13.png" alt="" loading="lazy" style="width: 50%;>
   <figcaption>
     The DTW distance (km) between the first 10 points of each route. Small phase shifts and GPS inaccuracy causes non-zero distances.
   </figcaption>
