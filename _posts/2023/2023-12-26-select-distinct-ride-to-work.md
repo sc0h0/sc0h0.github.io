@@ -138,7 +138,6 @@ Upon visually inspecting these routes displayed on a map, we can identify some c
 
 ### Applying the DTW Algorithm
 
-Now that the route data (300 historical routes in total) is ready, we can begin to apply the DTW algorithm. I should mention that I have leveraged a <a href="https://alphasldiallo.github.io/dynamic-time-warping-algorithm-for-trajectories-similarity/">brilliant write-up and sample implementation code</a>, which has been very helpful in quickly getting results.
-
+Now that the route data, including 300 historical routes, is ready, we can start applying the DTW algorithm. I should note that a <a href="https://alphasldiallo.github.io/dynamic-time-warping-algorithm-for-trajectories-similarity/"> helpful write-up and sample implementation code</a> made it easier for me to implement the algorithm myself.
 
 
