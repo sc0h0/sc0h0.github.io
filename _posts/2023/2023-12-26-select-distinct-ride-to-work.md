@@ -125,7 +125,7 @@ Strava makes it very easy to <a href="https://support.strava.com/hc/en-us/articl
 
 Since I've been using Strava from around 2010, I have numerous bike ride activities that neither start at my current home nor end at my current workplace. To optimise the DTW algorithm's ability to assess route similarity, I will include only those routes in the dataset that start within a 200 meter radius of my home and end within a 200 meter radius of my workplace. Applying this filter leaves us with data corresponding to around 300 rides to work.
 
-To improve the accuracy of the DTW algorithm and ensure privacy in this blog post, I will remove data points from the routes that are within a 200 meter radius of both my home and workplace, where GPS signals tend to be less reliable.
+To improve the accuracy of the DTW algorithm and ensure privacy in this blog post, I will also remove data points from the routes that are within a 200 meter radius of both my home, workplace and gym, where GPS signals tend to be less reliable.
 
 Upon visually inspecting these routes displayed on a map, we can identify some common routes that I frequently take, indicated by thicker and less patchy blue lines.
 
