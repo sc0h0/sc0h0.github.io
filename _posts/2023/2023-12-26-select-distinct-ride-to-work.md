@@ -149,7 +149,7 @@ Before we run DTW across all the data, let's test how it performs on two similar
   </figcaption>
 </figure>
 
-Given that the DTW algorithm's objective is to align all points with minimal cost, we can visually represent this with a matrix containing the distances between all points along both routes. In the matrix below, there are too many distance values to show (155 x 158 matrix cells) so a colour gradient has been used instead. Dark areas represent a large distance between two points from different routes and lighter areas indicate short distances between points from different routes. The optimal way to align both routes to one-another can be achieved with the alignment shown by the orange line.
+Given that the DTW algorithm's objective is to align all points with minimal cost, we can visually represent this with a matrix containing the distances between all points along both routes. In the matrix below, there are too many distance values to show (155 x 158 matrix cells) so a colour gradient has been used instead. Dark areas represent a large distance between two points from different routes and lighter areas indicate short distances between points from different routes. The optimal way to align both routes to one-another can be achieved with the alignment shown by the green line.
 
 We can also see that the two routes generally track each other well except for a period where the blue route is the first to turn west off a street. This deviation can also be seen in the distance matrix.
 
