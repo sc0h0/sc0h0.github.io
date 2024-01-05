@@ -169,13 +169,12 @@ In this example, the total distance required to align all points is 4.44km. In o
 </figure>
 
 ### DTW Results and Clustering 'Distinct' Routes
-
-In total there were around 200 routes analysed for similarity. This means the DTW distance must be calculated for approximately 19,900* unique pairs of routes. If we plot all of these distances on a histogram using a bin size of 1km, we begin to see clusters of high-frequency DTW distances. This suggests that there are possibly six general routes that I ride to work, represented by the six clusters in the histogram.
+In total, approximately 200 routes were analysed for similarity, leading to the calculation of DTW (Dynamic Time Warping) distances for about 19,900* unique pairs of routes. When these distances are plotted on a histogram with a bin size of 1 km, distinct clusters of high-frequency DTW distances become apparent. This pattern suggests the existence of roughly six general routes that I typically use for my commute to work, as indicated by the six clusters in the histogram.
 
 <figure>
   <img src="/assets/2023-12-26-img14.png" alt="" loading="lazy">
   <figcaption>
-    A deviation between two routes represented as a distance matrix between all points of both routes. Circled are deviations from almost-perfect alignment of the two routes.
+    A histogram displaying the frequency of DTW (Dynamic Time Warping) distances across approximately 19,900 unique pairs of routes.
   </figcaption>
 </figure>
 
