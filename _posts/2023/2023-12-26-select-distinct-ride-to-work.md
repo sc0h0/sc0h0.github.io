@@ -171,6 +171,8 @@ In this example, the total distance required to align all points is 4.44km. In o
 ### DTW Results and Clustering 'Distinct' Routes
 In total, approximately 200 routes were analysed for similarity, leading to the calculation of DTW (Dynamic Time Warping) distances for about 19,900* unique pairs of routes. When these distances are plotted on a histogram with a bin size of 1 km, distinct clusters of high-frequency DTW distances become apparent. This pattern suggests the existence of roughly six general routes that I typically use for my commute to work, as indicated by the six clusters in the histogram.
 
+\*200ⁿC₂ = 200! / (2! × (200-2)!)
+
 <figure>
   <img src="/assets/2023-12-26-img14.png" alt="" loading="lazy">
   <figcaption>
@@ -178,4 +180,9 @@ In total, approximately 200 routes were analysed for similarity, leading to the 
   </figcaption>
 </figure>
 
-\*200ⁿC₂ = 200! / (2! × (200-2)!)
+To me this wasn't initially appararant, but this simple example helped understand.
+
+Consider that there are only four routes in our Stava bulk export. These routes can be described by the following
+
+
+The first cluster is most frequent because it's  has a spread of around 10km so that seems like a good starting point in defining a threshold DTW distance to differentiate one `distinct` route from another. The other clusters are much wider, likely because they correspond to 
