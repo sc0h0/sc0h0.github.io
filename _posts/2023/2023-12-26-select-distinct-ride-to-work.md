@@ -164,7 +164,7 @@ In this example, the total distance required to align all points is 4.44km. In o
 <figure style="text-align: center;">
   <img src="/assets/2023-12-26-img13.png" alt="" loading="lazy" style="width: 30%; display: block; margin-left: auto; margin-right: auto;">
   <figcaption>
-    The DTW distance (km) between the first 10 points of both routes shown above. Small phase shifts and GPS inaccuracy causes non-zero distances.
+    The DTW distance (km) between the first 10 points of both routes shown above. Small phase shifts and GPS inaccuracy results in non-zero distances.
   </figcaption>
 </figure>
 
