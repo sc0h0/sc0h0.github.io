@@ -194,6 +194,12 @@ Given these four routes, we can identify six unique pairs to calculate the DTW D
   <img src="/assets/2023-12-26-img16.png" alt="" loading="lazy" style="width: 50%; display: block; margin-left: auto; margin-right: auto;">
 </figure>
 
+These six data points, when plotted on a histogram, reveal two very distinct clusters, highlighting the differences in DTW distances among the route pairs.
 
+<figure>
+  <img src="/assets/2023-12-26-img17.png" alt="" loading="lazy">
+  <figcaption>
+    A histogram displaying the frequency of DTW (Dynamic Time Warping) distances across 6 sample data points.
+  </figcaption>
+</figure>
 
-The first cluster is most frequent because it's  has a spread of around 10km so that seems like a good starting point in defining a threshold DTW distance to differentiate one `distinct` route from another. The other clusters are much wider, likely because they correspond to 
