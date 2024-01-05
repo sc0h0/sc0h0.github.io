@@ -203,3 +203,5 @@ These six data points, when plotted on a histogram, reveal two very distinct clu
   </figcaption>
 </figure>
 
+Unlike the histogram containing 19,000 datapoints, this histogram shows each cluster being perfectly centered on distances 5km and 20km. That is, there is no spread or variation within the cluster. So that 
+
