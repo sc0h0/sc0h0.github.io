@@ -182,13 +182,13 @@ In total, approximately 200 routes were analysed for similarity, leading to the 
 
 This wasn't immediately apparent to me, but a straightforward example helped clarify my understanding.
 
-Consider that there are only four routes in our Stava bulk export. These routes can be described by the following:
+Imagine we have a bulk export from Strava containing just four routes. These routes can be visualised as follows:
 
 <figure style="text-align: center;">
   <img src="/assets/2023-12-26-img15.png" alt="" loading="lazy" style="width: 80%; display: block; margin-left: auto; margin-right: auto;">
 </figure>
 
-Given that there are 4 routes, we can select six unique route pairs and calculate each pair's DTW Distance.
+Given these four routes, we can identify six unique pairs to calculate the DTW Distance for each combination.
 
 <figure style="text-align: center;">
   <img src="/assets/2023-12-26-img16.png" alt="" loading="lazy" style="width: 50%; display: block; margin-left: auto; margin-right: auto;">
