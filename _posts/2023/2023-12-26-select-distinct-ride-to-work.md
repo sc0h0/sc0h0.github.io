@@ -179,4 +179,4 @@ In total there were around 200 routes analysed for similarity. This means the DT
   </figcaption>
 </figure>
 
-* 200ⁿC₂ = 200! / (2! × (200-2)!)
+\*200ⁿC₂ = 200! / (2! × (200-2)!)
