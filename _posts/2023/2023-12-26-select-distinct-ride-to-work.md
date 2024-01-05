@@ -191,7 +191,7 @@ Consider that there are only four routes in our Stava bulk export. These routes 
 Given that there are 4 routes, we can select six unique route pairs and calculate each pair's DTW Distance.
 
 <figure style="text-align: center;">
-  <img src="/assets/2023-12-26-img16.png" alt="" loading="lazy" style="width: 80%; display: block; margin-left: auto; margin-right: auto;">
+  <img src="/assets/2023-12-26-img16.png" alt="" loading="lazy" style="width: 50%; display: block; margin-left: auto; margin-right: auto;">
 </figure>
 
 
