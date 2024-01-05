@@ -170,6 +170,5 @@ In this example, the total distance required to align all points is 4.44km. In o
 
 ### DTW Results and Clustering 'Distinct' Routes
 
-In total there were around 200 routes analysed for similarity. This means the DTW distance must be calculated for approximately "200 choose 2" ($^{200}C_2 = \frac{200!}{2! \times (200-2)!}$)
-$$
+In total there were around 200 routes analysed for similarity. This means the DTW distance must be calculated for approximately 19,900 ($^{200}C_2 = \frac{200!}{2! \times (200-2)!}$) unique pairs of routes.
 
