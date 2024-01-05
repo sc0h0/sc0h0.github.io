@@ -182,7 +182,7 @@ In total, approximately 200 routes were analysed for similarity, leading to the 
 
 This wasn't immediately apparent to me, but a straightforward example helped clarify my understanding.
 
-Imagine we have a bulk export from Strava containing just four routes. These routes can be visualised as follows:
+Imagine we have a bulk export from Strava containing just four routes. These routes are as follows:
 
 <figure style="text-align: center;">
   <img src="/assets/2023-12-26-img15.png" alt="" loading="lazy" style="width: 80%; display: block; margin-left: auto; margin-right: auto;">
@@ -194,7 +194,7 @@ Given these four routes, we can identify six unique pairs to calculate the DTW D
   <img src="/assets/2023-12-26-img16.png" alt="" loading="lazy" style="width: 50%; display: block; margin-left: auto; margin-right: auto;">
 </figure>
 
-These six data points, when plotted on a histogram, reveal two very distinct clusters, highlighting the differences in DTW distances among the route pairs.
+These six data points, when plotted on a histogram, reveal two very distinct clusters, highlighting the differences in DTW distances among the route pairs. This validates that while we may have a total of 4 routes in our dataset, there are really only two distinct routes.
 
 <figure>
   <img src="/assets/2023-12-26-img17.png" alt="" loading="lazy">
