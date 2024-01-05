@@ -184,23 +184,16 @@ This wasn't immediately apparent to me, but a straightforward example helped cla
 
 Consider that there are only four routes in our Stava bulk export. These routes can be described by the following:
 
-| Route                  | Description                                               |
-|------------------------|-----------------------------------------------------------|
-| Route 1, Mon 11th Dec  | My regular commute to work                                |
-| Route 2, Tue 12th Dec  | My regular commute to work, very similar to Route 1       |
-| Route 3, Wed 13th Dec  | My regular commute to work, very similar to Route 1       |
-| Route 4, Thur 14th Dec | Scenic route to work, very different to Route 1           |
+<figure style="text-align: center;">
+  <img src="/assets/2023-12-26-img15.png" alt="" loading="lazy" style="width: 30%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
 
 Given that there are 4 routes, we can select six unique route pairs and calculate each pair's DTW Distance.
 
-| Pair                  | DTW Distance (km) |
-|-----------------------|-------------------|
-| Route 1 and Route 2   | 5                 |
-| Route 1 and Route 3   | 5                 |
-| Route 1 and Route 4   | 20                |
-| Route 2 and Route 3   | 5                 |
-| Route 2 and Route 4   | 20                |
-| Route 3 and Route 4   | 20                |
+<figure style="text-align: center;">
+  <img src="/assets/2023-12-26-img16.png" alt="" loading="lazy" style="width: 30%; display: block; margin-left: auto; margin-right: auto;">
+</figure>
+
 
 
 The first cluster is most frequent because it's  has a spread of around 10km so that seems like a good starting point in defining a threshold DTW distance to differentiate one `distinct` route from another. The other clusters are much wider, likely because they correspond to 
