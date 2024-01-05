@@ -1,1 +1,45 @@
+---
+---
+<!doctype html>
+<html lang="en">
+<head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js" integrity="sha384-9aZuPF9+u2ZQ2H9l3eQ3vGFoN8tJWVzZlVoVH2R1BzIYbqT1c4f3jKTw01+L4Req" crossorigin="anonymous"></script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+  {%- if title -%}{{ title }}
+  {%- elsif page.title -%}{{ page.title }}
+  {%- else -%}{{ site.title }}
+  {%- endif -%}
+</title>
+
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+<meta name="robots" content="index,follow">
+
+{% if site.styles.inline != false %}
+  <style type="text/css">
+    {% include styles.html %}
+  </style>
+{% else %}
+  <link rel="stylesheet" href="{{ site.baseurl | prepend: site.url }}/styles.css">
+{% endif %}
+
+{% include head-custom.html %}
+
+</head>
+<body>
+
+{% include header.html %}
+
+<main>{{ content }}</main>
+
+{% include footer.html %}
+
+<script type="text/javascript">{% include scripts.html %}</script>
+
+{% include footer-ext.html %}
+
+</body>
+</html>
