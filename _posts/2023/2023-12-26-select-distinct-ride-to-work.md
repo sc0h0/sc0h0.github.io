@@ -170,6 +170,13 @@ In this example, the total distance required to align all points is 4.44km. In o
 
 ### DTW Results and Clustering 'Distinct' Routes
 
-In total there were around 200 routes analysed for similarity. This means the DTW distance must be calculated for approximately 19,900 [^1] unique pairs of routes. If we plot all of these distances on a histogram using a bin size of 
+In total there were around 200 routes analysed for similarity. This means the DTW distance must be calculated for approximately 19,900* unique pairs of routes. If we plot all of these distances on a histogram using a bin size of 1km, we begin to see clusters of high-frequency DTW distances. This suggests that there are possibly six general routes that I ride to work, represented by the six clusters in the histogram.
 
-[^1]: 200ⁿC₂ = 200! / (2! × (200-2)!)
+<figure>
+  <img src="/assets/2023-12-26-img14.png" alt="" loading="lazy">
+  <figcaption>
+    A deviation between two routes represented as a distance matrix between all points of both routes. Circled are deviations from almost-perfect alignment of the two routes.
+  </figcaption>
+</figure>
+
+* 200ⁿC₂ = 200! / (2! × (200-2)!)
