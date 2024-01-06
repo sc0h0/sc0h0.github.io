@@ -179,17 +179,19 @@ To cluster the routes, I adopted a straightforward method that was perhaps less 
 - Move to the next route and repeat the process, ensuring to exclude any routes already included in 'cluster 1'.
 - Continue with this approach, forming new clusters as necessary.
 
-By colour-coding each cluster of routes on the map, we can clearly see that the crude clustering approach has yielded reasonably effective results. As I personally participated in creating the data for these routes, I'm able to provide my own narratives for each one. Specifically:
+By colour-coding each cluster of routes on the map, we can clearly see that the crude clustering approach has yielded reasonably effective results. As I personally participated in creating the data for these routes, I'm able to provide my own narratives for each one. 
+
+Specifically:
 
 - <span style="color: red;">Red</span> = Direct to work route, Johnston is probably hard to cross to crossing Hoddle instead
-- Green = Direct to work route, cross Hoddle first (mostly)
-- Blue = Gym first then continue to work
-- Purple = Feelign like cardio only today, taking the Yarra Trail
+- <span style="color: green;">Green</span> = Direct to work route, cross Hoddle first (mostly)
+- <span style="color: blue;">Blue</span> = Gym first then continue to work
+- <span style="color: purple;">Purple</span> = Feelign like cardio only today, taking the Yarra Trail
 
 <figure>
   <img src="/assets/2023-12-26-img14.png" alt="" loading="lazy">
   <figcaption>
-    Colour-coded clustered routes using a Dynamic Time Warping (DTW) threshold distance of less than 10km
+    Colour-coded clustered routes using a DTW threshold distance of less than 10km
   </figcaption>
 </figure>
 
