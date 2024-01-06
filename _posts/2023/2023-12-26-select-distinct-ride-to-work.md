@@ -175,7 +175,7 @@ In total, approximately 200 routes were analysed for similarity, leading to the 
 
 To cluster the routes, I adopted a straightforward method that was perhaps less than ideal but still provided some good insights. The process for clustering was as follows:
 
-- Select a route and find other routes with a Dynamic Time Warping (DTW) distance of less than 10km. Group these routes into 'cluster 1'.
+- Select a route and find other routes with a DTW distance of less than 10km. Group these routes into 'cluster 1'.
 - Move to the next route and repeat the process, ensuring to exclude any routes already included in 'cluster 1'.
 - Continue with this approach, forming new clusters as necessary.
 
