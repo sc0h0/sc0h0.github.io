@@ -191,7 +191,7 @@ Specifically:
 <figure>
   <img src="/assets/2023-12-26-img14.png" alt="" loading="lazy">
   <figcaption>
-    Colour-coded clustered routes using a DTW threshold distance of less than 10km
+    Routes were colour-coded into clusters using a DTW threshold distance of less than 10km. Any clusters with fewer than 10 routes were removed, as they are considered outlier routes.
   </figcaption>
 </figure>
 
