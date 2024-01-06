@@ -173,5 +173,23 @@ In total, approximately 200 routes were analysed for similarity, leading to the 
 
 \*200ⁿC₂ = 200! / (2! × (200-2)!)
 
+To cluster the routes, I adopted a straightforward method that was perhaps less than ideal but still provided some good insights. The process for clustering was as follows:
 
+- Select a route and find other routes with a Dynamic Time Warping (DTW) distance of less than 10km. Group these routes into 'cluster 1'.
+- Move to the next route and repeat the process, ensuring to exclude any routes already included in 'cluster 1'.
+- Continue with this approach, forming new clusters as necessary.
+
+By colour-coding each cluster of routes on the map, we can clearly see that the crude clustering approach has yielded reasonably effective results. As I personally participated in creating the data for these routes, I'm able to provide my own narratives for each one. Specifically:
+
+- <span style="color: red;">Red</span> = Direct to work route, Johnston is probably hard to cross to crossing Hoddle instead
+- Green = Direct to work route, cross Hoddle first (mostly)
+- Blue = Gym first then continue to work
+- Purple = Feelign like cardio only today, taking the Yarra Trail
+
+<figure>
+  <img src="/assets/2023-12-26-img14.png" alt="" loading="lazy">
+  <figcaption>
+    Colour-coded clustered routes using a Dynamic Time Warping (DTW) threshold distance of less than 10km
+  </figcaption>
+</figure>
 
