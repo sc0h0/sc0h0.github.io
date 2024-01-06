@@ -183,10 +183,10 @@ By colour-coding each cluster of routes on the map, we can clearly see that the 
 
 Specifically:
 
-- <span style="color: red;">Red</span> = Direct to work route, Johnston is probably hard to cross to crossing Hoddle instead
-- <span style="color: green;">Green</span> = Direct to work route, cross Hoddle first (mostly)
-- <span style="color: blue;">Blue</span> = Gym first then continue to work
-- <span style="color: purple;">Purple</span> = Feeling like cardio only today, taking the Yarra Trail
+- <span style="color: red;">**Red**</span> = Direct to work route, Johnston is probably hard to cross to crossing Hoddle instead
+- <span style="color: green;">**Green**</span> = Direct to work route, cross Hoddle first (mostly)
+- <span style="color: blue;">**Blue**</span> = Gym first then continue to work
+- <span style="color: purple;">**Purple**</span> = Feeling like cardio only today, taking the Yarra Trail
 
 <figure>
   <img src="/assets/2023-12-26-img14.png" alt="" loading="lazy">
