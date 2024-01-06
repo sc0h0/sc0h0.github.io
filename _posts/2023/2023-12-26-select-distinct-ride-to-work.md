@@ -179,7 +179,7 @@ To cluster the routes, I adopted a straightforward method that was perhaps less 
 - Move to the next route and repeat the process, ensuring to exclude any routes already included in 'cluster 1'.
 - Continue with this approach, forming new clusters as necessary.
 
-By colour-coding each cluster of routes on the map, we can clearly see that the crude clustering approach has yielded reasonably effective results. As I personally participated in creating the data for these routes, I'm able to provide my own narratives for each one. 
+By colour-coding each cluster of routes on the map, we can clearly see that the crude clustering approach has produced reasonably effective results. As I personally participated in creating the data for these routes, I’m able to provide my own narratives for each one.
 
 Specifically:
 
