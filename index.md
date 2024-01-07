@@ -15,4 +15,5 @@ Latest posts:
 
 Contact:
 [Email](mailto:smart.luck8709@fastmail.com)
+
 [LinkedIn](https://www.linkedin.com/in/horvathscott/)
