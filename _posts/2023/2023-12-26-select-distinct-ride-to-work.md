@@ -188,7 +188,7 @@ Specifically:
 - <span style="color: blue;">**Blue**</span> = This route involves riding to the gym then continue to work
 - <span style="color: purple;">**Purple**</span> = This is a longer route for cardio exercise, taking a detour along the Yarra Trail.
 
-The Walmer Street Bridge detour is not represented as an additional cluster because, unfortunately, the Strava ride data was captured in a format that was challenging to process with the DTW algorithm.
+Unfortunately, the Walmer Street Bridge detour is not represented as an additional cluster because the Strava ride data for these routes was captured in a format that caused challenges for processing with the DTW algorithm.
 
 <figure>
   <img src="/assets/2023-12-26-img14.png" alt="" loading="lazy">
