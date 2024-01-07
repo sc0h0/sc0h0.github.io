@@ -186,7 +186,9 @@ Specifically:
 - <span style="color: red;">**Red**</span> = This is a direct route option A
 - <span style="color: green;">**Green**</span> = This is a direct route option B
 - <span style="color: blue;">**Blue**</span> = This route involves riding to the gym then continue to work
-- <span style="color: purple;">**Purple**</span> = This is a longer route for cardio exercise, taking a detour along the Yarra Trail
+- <span style="color: purple;">**Purple**</span> = This is a longer route for cardio exercise, taking a detour along the Yarra Trail.
+
+The Walmer Street Bridge detour is not represented as an additional cluster because, unfortunately, the Strava ride data was captured in a format that was challenging to process with the DTW algorithm.
 
 <figure>
   <img src="/assets/2023-12-26-img14.png" alt="" loading="lazy">
