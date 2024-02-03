@@ -6,4 +6,8 @@ One of my favourite websites <a href="https://pricehipster.com/">Price Hipster</
 
 About two years ago, Dan Murphy's products stopped being displayed and tracked on Price Hipster due to unknown reasons. To this day, the products remain absent from the site.
 
-As I had become dependent on this feature to find wine at discounted prices, I set out to build my own data harvester and price tracker. This way, I could continue to complement my wife's expensive taste in <a href="https://toscanos.com.au/">Toscano's</a> cheese with equally fine wines, acquired at more affordable prices.
+As I had become dependent on this feature to find wine at discounted prices, I set out to build my own price tracker. This way, I could continue to complement my wife's expensive taste in <a href="https://toscanos.com.au/">Toscano's</a> cheese with equally fine wines, acquired at more affordable prices.
+
+### Unexpected Results
+The solution in my head sounded straight-forward: collect the wine price at regular intervals and flag when it drops below a percentage threshold. 
+As with all projects that involve collecting data <a href="https://en.wikipedia.org/wiki/Web_scraping">"en masse"</a>,  
