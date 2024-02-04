@@ -17,6 +17,8 @@ After some digging around, I found that the VPN used during the data collection 
 
 The two different Dan Murphy's stores had their own price for identical bottles of wine, and the cheaper price was not marked as a clearance or "Member's Only" offer.
 
+For example, the two wines shown below are identical however, as of 17/01/2024, the bottle at Kew is $40.60 while the bottle at Alphington is $57.99. That's a $17 discount for driving less than ten minutes. There is also no indication of a sale or "Member's Only" offer upon viewing the bottle witht the Kew store selected.
+
 <figure>
   <img src="/assets/2024-02-03-img01.png" alt="" loading="lazy">
   <figcaption>
