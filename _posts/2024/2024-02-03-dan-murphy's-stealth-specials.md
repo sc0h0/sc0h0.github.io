@@ -13,7 +13,7 @@ I pieced together a script to collect Dan Murphy's wine price data <a href="http
 
 Eventually I noticed price drops on some interesting wines so I added them to my cart for checkout. Strangely, the prices at checkout did not match those captured by the data collection script. 
 
-After some digging around, I found that the VPN used during the data collection process (to avoid the risk of Dan's perma-banning my own IP) was having a different C&C store automatically assigned than my local one in Collingwood.
+After some digging around, I found that the VPN used during the data collection process (to avoid the risk of Dan's perma-banning my own IP) was having a different Click&Collect store automatically assigned than my local one in Collingwood.
 
 The two different Dan Murphy's stores had their own price for identical bottles of wine, and the cheaper price was not marked as a clearance or "Member's Only" offer.
 
