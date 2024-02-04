@@ -17,6 +17,13 @@ After some digging around, I found that the VPN used during the data collection 
 
 The two different Dan Murphy's stores had their own price for identical bottles of wine, and the cheaper price was not marked as a clearance or "Member's Only" offer.
 
+<figure>
+  <img src="/assets/2024-02-03-img01.png" alt="" loading="lazy">
+  <figcaption>
+    As of 17/01/2024 two identical wines with a 30% price variation, dependent on Dan Murphy's stores that are approx. 15 minutes drive from one another.
+  </figcaption>
+</figure>
+
 
 
 
