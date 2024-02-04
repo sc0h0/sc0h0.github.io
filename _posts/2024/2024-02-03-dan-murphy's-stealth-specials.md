@@ -22,10 +22,17 @@ For example, the two identical wines shown below have different prices as of 17/
 <figure>
   <img src="/assets/2024-02-03-img01.png" alt="" loading="lazy">
   <figcaption>
-    As of 17/01/2024 two identical wines with a 30% price variation, dependent on Dan Murphy's stores that are approx. 15 minutes drive from one another.
+    As of 17/01/2024 two identical wines with a 30% price variation, dependent on Dan Murphy's stores that are approx. 10 minutes drive from one another.
   </figcaption>
 </figure>
 
+Even more baffling than the first example, the bottle below (Fawkner store) marked as a "Member's Only" offer is priced higher than an identical bottle with no sale mentioned (Collingwood store).
 
+<figure>
+  <img src="/assets/2024-02-03-img02.png" alt="" loading="lazy">
+  <figcaption>
+    A bottle marked "Member's Only" offer is priced higher than an identical bottle with no sale mentioned
+  </figcaption>
+</figure>
 
 
