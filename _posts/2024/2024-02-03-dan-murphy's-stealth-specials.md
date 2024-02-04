@@ -9,7 +9,7 @@ About two years ago, Dan Murphy's products stopped being displayed and tracked o
 As I had become dependent on this feature to find wine at discounted prices, I set out to build my own price tracker. This way, I could continue to complement my wife's expensive taste in <a href="https://toscanos.com.au/">Toscano's</a> cheese with equally fine wines, acquired at more affordable prices.
 
 ### Unexpected Results
-I pieced together a script to collect Dan Murphy's wine price data <a href="https://en.wikipedia.org/wiki/Web_scraping\">"en masse"</a>. These scripts ran several times over a few weeks to compile price snapshots, allowing me to spot price drops.
+I pieced together a script to collect Dan Murphy's wine price data <a href="https://en.wikipedia.org/wiki/Web_scraping">"en masse"</a>. These scripts ran several times over a few weeks to compile price snapshots, allowing me to spot price drops.
 
 Eventually I noticed price drops on some interesting wines and so I added them to my cart for checkout. Strangely, the prices at checkout did not match those captured by the data collection script. 
 
