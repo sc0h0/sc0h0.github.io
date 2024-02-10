@@ -35,4 +35,6 @@ Even more baffling than the first example, the bottle below (Fawkner store) mark
   </figcaption>
 </figure>
 
+### Exploring Store-based Pricing
+Now aware that there are two dimensions influencing price drops (time and location) I set out to explore the relationship between location and price. 
 
