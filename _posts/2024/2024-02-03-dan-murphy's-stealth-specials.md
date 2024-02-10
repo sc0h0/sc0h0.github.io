@@ -48,10 +48,32 @@ Out of roughly 4,900 unique red wine stock codes (which might not all be in stoc
 </figure>
 
 The top five stores in terms of most discounted red wines are:
-| Store       | Number of discounted red wines |
-|------------------|-------------------|
-| Endeavour Hills  | 417               |
-| Epping           | 416               |
-| Hoppers Crossing | 400               |
-| Fawkner          | 380               |
-| Hawthorn East    | 373               |
+<table>
+  <tr>
+    <th>Store</th>
+    <th>Number of discounted red wines</th>
+  </tr>
+  <tr>
+    <td>Endeavour Hills</td>
+    <td>417</td>
+  </tr>
+  <tr>
+    <td>Epping</td>
+    <td>416</td>
+  </tr>
+  <tr>
+    <td>Hoppers Crossing</td>
+    <td>400</td>
+  </tr>
+  <tr>
+    <td>Fawkner</td>
+    <td>380</td>
+  </tr>
+  <tr>
+    <td>Hawthorn East</td>
+    <td>373</td>
+  </tr>
+</table>
+
+And lowest five stores:
+
