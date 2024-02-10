@@ -46,3 +46,12 @@ Out of roughly 4,900 unique red wine stock codes (which might not all be in stoc
     Dan Murphy's stores and the number of discount red wines.
   </figcaption>
 </figure>
+
+The top five stores in terms of most discounted red wines are:
+| Store       | Number of discounted red wines |
+|------------------|-------------------|
+| Endeavour Hills  | 417               |
+| Epping           | 416               |
+| Hoppers Crossing | 400               |
+| Fawkner          | 380               |
+| Hawthorn East    | 373               |
