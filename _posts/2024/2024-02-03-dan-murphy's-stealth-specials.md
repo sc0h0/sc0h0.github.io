@@ -76,4 +76,29 @@ The top five stores in terms of most discounted red wines are:
 </table>
 
 And lowest five stores:
-
+<table>
+  <tr>
+    <th>Store</th>
+    <th>Number of discounted red wines</th>
+  </tr>
+  <tr>
+    <td>Ascot Vale</td>
+    <td>202</td>
+  </tr>
+  <tr>
+    <td>Bulleen</td>
+    <td>206</td>
+  </tr>
+  <tr>
+    <td>Prahran</td>
+    <td>219</td>
+  </tr>
+  <tr>
+    <td>Richmond</td>
+    <td>223</td>
+  </tr>
+  <tr>
+    <td>Southbank</td>
+    <td>224</td>
+  </tr>
+</table>
