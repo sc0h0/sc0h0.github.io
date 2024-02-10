@@ -15,9 +15,9 @@ Eventually I noticed price drops on some interesting wines so I added them to my
 
 After some digging around, I found that the VPN used during the data collection process (to avoid the risk of Dan's perma-banning my own IP) was having a different Click&Collect store automatically assigned than my local one in Collingwood.
 
-The two different Dan Murphy's stores had their own price for identical bottles of wine, and the cheaper price was not marked as a clearance or "Member's Only" offer.
+The two different Dan Murphy's stores had their own price for identical bottles of wine, and the cheaper price was not marked as a clearance or "Member Offer" offer.
 
-For example, the two identical wines shown below have different prices as of 17/01/2024: the bottle at Kew is priced at $40.60, whereas at Alphington, it's $57.99. That's a $17 discount for a drive of less than ten minutes. There is also no indication of a sale or 'Member's Only' offer when viewing the bottle with the Kew store selected.
+For example, the two identical wines shown below have different prices as of 17/01/2024: the bottle at Kew is priced at $40.60, whereas at Alphington, it's $57.99. That's a $17 discount for a drive of less than ten minutes. There is also no indication of a sale or "Member Offer" offer when viewing the bottle with the Kew store selected.
 
 <figure>
   <img src="/assets/2024-02-03-img01.png" alt="" loading="lazy">
@@ -26,12 +26,12 @@ For example, the two identical wines shown below have different prices as of 17/
   </figcaption>
 </figure>
 
-Even more baffling than the first example, the bottle below (Fawkner store) marked as a "Member's Only" offer is priced higher than an identical bottle with no sale mentioned (Collingwood store).
+Even more baffling than the first example, the bottle below (Fawkner store) marked as a "Member Offer" offer is priced higher than an identical bottle with no sale mentioned (Collingwood store).
 
 <figure>
   <img src="/assets/2024-02-03-img02.png" alt="" loading="lazy">
   <figcaption>
-    A bottle marked "Member's Only" offer is priced higher than an identical bottle with no sale mentioned
+    A bottle marked "Member Offer" offer is priced higher than an identical bottle with no sale mentioned
   </figcaption>
 </figure>
 
