@@ -47,6 +47,24 @@ Out of roughly 4,900 unique red wine stock codes (which might not all be in stoc
   </figcaption>
 </figure>
 
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  th, td {
+    border: 1px solid #ddd; /* Light grey border */
+    padding: 8px; /* Spacing within cells */
+    text-align: left; /* Align text to the left of cell */
+  }
+  th {
+    background-color: #f2f2f2; /* Light grey background for headers */
+    color: black;
+  }
+  tr:nth-child(even) {background-color: #f9f9f9;} /* Zebra striping for rows */
+</style>
+
 The top five stores in terms of most discounted red wines are:
 <table>
   <tr>
