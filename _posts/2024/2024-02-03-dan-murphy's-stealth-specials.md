@@ -38,7 +38,7 @@ Even more baffling than the first example, the bottle below (Fawkner store) mark
 ### Exploring Store-based Pricing
 Now aware that price drops are influenced by both time and location, I decided to look into how location affects price. Using a price snapshot from 17th January for Dan Murphy’s <span style="color: #ff0000;">red wines</span>  across Victoria, I analysed whether there was any store-specific price variation for each wine. 
 
-Out of roughly 4,900 unique red wine stock codes (which might not all be in stock), about 3,800 (around 80%) showed no difference in price between stores. If a wine had store-specific pricing and matched the lowest observed price, it was flagged and included in the counts below.
+Out of roughly 4,900 unique red wine stock codes (which might not all be in stock), about 3,800 (around 80%) showed no difference in price between stores. If a wine had store-specific pricing and matched the lowest observed price, it was flagged and counted as a discounted wine.
 
 <figure>
   <img src="/assets/2024-02-03-img03.png" alt="" loading="lazy">
