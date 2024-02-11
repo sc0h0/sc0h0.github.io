@@ -47,12 +47,11 @@ Out of roughly 4,900 unique red wine stock codes (which might not all be in stoc
   </figcaption>
 </figure>
 
-The top five stores in terms of most discounted red wines are:
 <figure>
   <img src="/assets/2024-02-03-img04.png" alt="" loading="lazy">
 </figure>
 
-And lowest five stores:
+And the five stores with the lowest volume of discounted red wines:
 <figure>
   <img src="/assets/2024-02-03-img05.png" alt="" loading="lazy">
 </figure>
