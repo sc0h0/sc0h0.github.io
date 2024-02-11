@@ -47,76 +47,12 @@ Out of roughly 4,900 unique red wine stock codes (which might not all be in stoc
   </figcaption>
 </figure>
 
-<style>
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  th, td {
-    border: 1px solid #ddd; /* Light grey border */
-    padding: 8px; /* Spacing within cells */
-    text-align: left; /* Align text to the left of cell */
-  }
-  th {
-    background-color: #f2f2f2; /* Light grey background for headers */
-    color: black;
-  }
-  tr:nth-child(even) {background-color: #f9f9f9;} /* Zebra striping for rows */
-</style>
-
 The top five stores in terms of most discounted red wines are:
-<table>
-  <tr>
-    <th>Store</th>
-    <th>Number of discounted red wines</th>
-  </tr>
-  <tr>
-    <td>Endeavour Hills</td>
-    <td>417</td>
-  </tr>
-  <tr>
-    <td>Epping</td>
-    <td>416</td>
-  </tr>
-  <tr>
-    <td>Hoppers Crossing</td>
-    <td>400</td>
-  </tr>
-  <tr>
-    <td>Fawkner</td>
-    <td>380</td>
-  </tr>
-  <tr>
-    <td>Hawthorn East</td>
-    <td>373</td>
-  </tr>
-</table>
+<figure>
+  <img src="/assets/2024-02-03-img04.png" alt="" loading="lazy">
+</figure>
 
 And lowest five stores:
-<table>
-  <tr>
-    <th>Store</th>
-    <th>Number of discounted red wines</th>
-  </tr>
-  <tr>
-    <td>Ascot Vale</td>
-    <td>202</td>
-  </tr>
-  <tr>
-    <td>Bulleen</td>
-    <td>206</td>
-  </tr>
-  <tr>
-    <td>Prahran</td>
-    <td>219</td>
-  </tr>
-  <tr>
-    <td>Richmond</td>
-    <td>223</td>
-  </tr>
-  <tr>
-    <td>Southbank</td>
-    <td>224</td>
-  </tr>
-</table>
+<figure>
+  <img src="/assets/2024-02-03-img05.png" alt="" loading="lazy">
+</figure>
