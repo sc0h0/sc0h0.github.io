@@ -43,7 +43,7 @@ Out of roughly 4,900 unique red wine stock codes (which might not all be in stoc
 <figure>
   <img src="/assets/2024-02-03-img03.png" alt="" loading="lazy">
   <figcaption>
-    Dan Murphy's stores and the number of discount red wines.
+    Top 5 Dan Murphy's stores in terms of the number of discounted red wines.
   </figcaption>
 </figure>
 
