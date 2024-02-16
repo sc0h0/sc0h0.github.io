@@ -13,7 +13,7 @@ I pieced together a script to collect Dan Murphy's wine price data <a href="http
 
 Eventually I noticed price drops on some interesting wines so I added them to my cart for checkout. Strangely, the prices at checkout did not match those captured by the data collection script. 
 
-After some digging around, I found that the VPN used during the data collection process (to avoid the risk of Dan's perma-banning my own IP) was having a different Click&Collect store automatically assigned than my local one.
+After some digging around, I found that the VPN used during the data collection process (to avoid the risk of Dan's perma-banning my own IP address) was having a different Click&Collect store automatically assigned than my local one.
 
 The two different Dan Murphy's stores had their own price for identical bottles of wine, and the cheaper price was not marked as a clearance or "Member Offer" offer.
 
@@ -46,6 +46,8 @@ Out of roughly 4,900 unique red wine stock codes (which might not all be in stoc
     Top five Dan Murphy's stores by number of discounted red wines: Endeavour Hills, Epping, Hoppers Crossing, Fawkner and Hawthorn East.
   </figcaption>
 </figure>
+
+Among the top five stores is Fawkner, which has become my regular click and collect Dan Murphy's store.
 
 <figure>
   <img src="/assets/2024-02-03-img04.png" alt="" loading="lazy">
