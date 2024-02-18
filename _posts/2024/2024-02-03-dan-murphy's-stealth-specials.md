@@ -59,7 +59,7 @@ And the five stores with the lowest volume of discounted red wines (which I'll n
 </figure>
 
 ### Realistic Stealth Specials
-Among the results were some impressive discounts, such as this <a href="https://www.danmurphys.com.au/product/DM_908516">"Bimbadgen Hunter Valley Shiraz"</a> that while in stock was selling for $16.99 at Glen Waverly, and everywhere else in Victoria had it for $26.99 (a 37% discount). If we limit the analysis to wines in stock, we get a more realistic picture of what we can expect in terms of Dan's Stealth Specials.
+Among the results were some impressive discounts, such as this <a href="https://www.danmurphys.com.au/product/DM_908516">"Bimbadgen Hunter Valley Shiraz"</a> that while in stock was selling for $16.99 at Glen Waverly, and everywhere else in Victoria had it for $26.99 (a 37% discount). If we limit the analysis to wines in stock, we get a more realistic picture of what we can expect in terms of Dan's stealth specials.
 
 Assessing the range of discounted red wines that are in stock and are available for collection in at least one store, we can see that a majority fall within a range of 25-30% discount against the average price of the particular bottle of wine. My guess is that a 30% discount is likely the threshold set by corporate guidelines for store management to encourage sales of inventory. 
 
@@ -71,6 +71,13 @@ Assessing the range of discounted red wines that are in stock and are available 
 </figure>
 
 ### All good pricing inefficiencies must come to an end
+While writing this post, I went to refresh the list of stealth specials. Ironically, at some point in the last month, Dan Murphy's updated their website, which means my solution for acquiring their pricing data en masse (written in R) now faces access issues. I'll likely need to rewrite it in Python to utilise its more sophisticated web browsing capabilities for data acquisition.
 
+<figure>
+  <img src="/assets/2024-02-03-img07.png" alt="" loading="lazy">
+  <figcaption>
+    A recent change to the Dan Murphy's website has put a temporary halt to identifying their stealth specials
+  </figcaption>
+</figure>
 
 
