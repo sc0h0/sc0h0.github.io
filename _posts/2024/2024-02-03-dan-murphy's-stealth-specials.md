@@ -69,3 +69,8 @@ Assessing the range of discounted red wines that are in stock and are available 
     A majority of the red wines that are still in stock and have been discounted are offered at prices below 25-30% of the particular wine's average price across all Dan Murphy's stores in Victoria.
   </figcaption>
 </figure>
+
+### All good pricing inefficiencies must come to an end
+
+
+
