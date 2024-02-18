@@ -36,7 +36,7 @@ Even more baffling than the first example, the bottle below (Fawkner store) mark
 </figure>
 
 ### Exploring Store-based Pricing
-Now aware that price drops are influenced by both time and location, I decided to look into how location affects price. Using a price snapshot from 17th January for Dan Murphy’s <span style="color: #ff0000;">red wines</span>  across Victoria, I analysed whether there was any store-specific price variation for each wine. 
+Now aware that price drops are influenced by both time and location, I decided to look into just how much location affects price. Using a price snapshot from 17th January for Dan Murphy’s <span style="color: #ff0000;">red wines</span>  across Victoria, I analysed whether there was any store-specific price variation for each wine. 
 
 Out of roughly 4,900 unique red wine stock codes (which might not all be in stock), about 3,800 (around 80%) showed no difference in price between stores. If a wine had store-specific pricing and matched the lowest observed price, it was flagged and counted as a discounted wine.
 
@@ -53,7 +53,7 @@ Among the top five stores is Fawkner, which has become my regular click and coll
   <img src="/assets/2024-02-03-img04.png" alt="" loading="lazy">
 </figure>
 
-And the five stores with the lowest volume of discounted red wines:
+And the five stores with the lowest volume of discounted red wines (which I'll never set foot in):
 <figure>
   <img src="/assets/2024-02-03-img05.png" alt="" loading="lazy">
 </figure>
@@ -61,4 +61,11 @@ And the five stores with the lowest volume of discounted red wines:
 ### Realistic Stealth Specials
 Among the results were some extreme discounts, such as this <a href="https://www.danmurphys.com.au/product/DM_908516">"Bimbadgen Hunter Valley Shiraz"</a> that while in stock was selling for $16.99 at Glen Waverly, and everywhere else in Victoria had it for $26.99. If we limit the analysis to wines in stock, we get a more realistic picture of what we can expect in terms of Dan's Stealth Specials.
 
-Assessing the range of red wines that are in stock and are available for collection in at least one store, we can see that a majority fall within a range of 25-30% discount against the average price of the particular bottle of wine. 
+Assessing the range of discounted red wines that are in stock and are available for collection in at least one store, we can see that a majority fall within a range of 25-30% discount against the average price of the particular bottle of wine. My guess is that a 30% discount is likely the threshold set by corporate guidelines for store management to encourage sales of inventory. 
+
+<figure>
+  <img src="/assets/2024-02-03-img06.png" alt="" loading="lazy">
+  <figcaption>
+    A majority of the red wines that are still in stock and have been discounted are offered at prices below 25-30% of the particular wine's average price across all Dan Murphy's stores in Victoria.
+  </figcaption>
+</figure>
