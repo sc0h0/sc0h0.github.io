@@ -59,7 +59,7 @@ And the five stores with the lowest volume of discounted red wines (which I'll n
 </figure>
 
 ### Realistic Stealth Specials
-Among the results were some extreme discounts, such as this <a href="https://www.danmurphys.com.au/product/DM_908516">"Bimbadgen Hunter Valley Shiraz"</a> that while in stock was selling for $16.99 at Glen Waverly, and everywhere else in Victoria had it for $26.99. If we limit the analysis to wines in stock, we get a more realistic picture of what we can expect in terms of Dan's Stealth Specials.
+Among the results were some impressive discounts, such as this <a href="https://www.danmurphys.com.au/product/DM_908516">"Bimbadgen Hunter Valley Shiraz"</a> that while in stock was selling for $16.99 at Glen Waverly, and everywhere else in Victoria had it for $26.99 (a 37% discount). If we limit the analysis to wines in stock, we get a more realistic picture of what we can expect in terms of Dan's Stealth Specials.
 
 Assessing the range of discounted red wines that are in stock and are available for collection in at least one store, we can see that a majority fall within a range of 25-30% discount against the average price of the particular bottle of wine. My guess is that a 30% discount is likely the threshold set by corporate guidelines for store management to encourage sales of inventory. 
 
