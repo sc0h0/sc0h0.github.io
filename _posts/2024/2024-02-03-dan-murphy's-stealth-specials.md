@@ -71,7 +71,7 @@ Assessing the range of discounted red wines that are in stock and are available 
 </figure>
 
 ### All good pricing inefficiencies must come to an end
-While writing this post, I went to refresh the list of stealth specials. Ironically, at some point in the last month, Dan Murphy's updated their website, which means my solution for acquiring their pricing data en masse (written in R) now faces access issues. I'll likely need to rewrite it in Python to utilise its more sophisticated web browsing capabilities for data acquisition.
+While writing this post I went to refresh the list of stealth specials. Ironically, at some point in the last month, Dan Murphy's updated their website which means my solution for acquiring their pricing data en masse (written in R) now faces access issues. I'll likely need to rewrite it in Python to gain access to its better automated web browser.
 
 <figure>
   <img src="/assets/2024-02-03-img07.png" alt="" loading="lazy">
