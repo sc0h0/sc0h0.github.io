@@ -20,7 +20,7 @@ The two different Dan Murphy's stores had their own price for identical bottles 
 For example, the two identical wines shown below have different prices as of 17/01/2024: the bottle at Kew is priced at $40.60, whereas at Alphington, it's $57.99. That's a $17 discount for a drive of less than ten minutes! There is also no indication of a sale or "Member Offer" offer when viewing the bottle with the Kew store selected.
 
 <figure>
-  <img src="/assets/2024-02-03-img01.png" alt="" loading="lazy">
+  <img src="/assets/2024-02-18-img01.png" alt="" loading="lazy">
   <figcaption>
     As of 17/01/2024 two identical wines with a 30% price variation, dependent on Dan Murphy's stores that are approx. 10 minutes drive from one another.
   </figcaption>
@@ -29,7 +29,7 @@ For example, the two identical wines shown below have different prices as of 17/
 Even more baffling than the first example, the bottle below (Fawkner store) marked as a "Member Offer" offer is priced higher than an identical bottle with no sale mentioned (Collingwood store).
 
 <figure>
-  <img src="/assets/2024-02-03-img02.png" alt="" loading="lazy">
+  <img src="/assets/2024-02-18-img02.png" alt="" loading="lazy">
   <figcaption>
     A bottle marked "Member Offer" offer is priced higher than an identical bottle with no sale mentioned
   </figcaption>
@@ -41,7 +41,7 @@ Now aware that price drops are influenced by both time and location, I decided t
 Out of roughly 4,900 unique red wine stock codes (which might not all be in stock), about 3,800 (around 80%) showed no difference in price between stores. If a wine had store-specific pricing and matched the lowest observed price, it was flagged and counted as a discounted wine.
 
 <figure>
-  <img src="/assets/2024-02-03-img03.png" alt="" loading="lazy">
+  <img src="/assets/2024-02-18-img03.png" alt="" loading="lazy">
   <figcaption>
     Top five Dan Murphy's stores by number of discounted red wines: Endeavour Hills, Epping, Hoppers Crossing, Fawkner and Hawthorn East.
   </figcaption>
@@ -50,12 +50,12 @@ Out of roughly 4,900 unique red wine stock codes (which might not all be in stoc
 Among the top five stores is Fawkner, which has become my regular click and collect Dan Murphy's store.
 
 <figure>
-  <img src="/assets/2024-02-03-img04.png" alt="" loading="lazy">
+  <img src="/assets/2024-02-18-img04.png" alt="" loading="lazy">
 </figure>
 
 And the five stores with the lowest volume of discounted red wines (which I'll never set foot in):
 <figure>
-  <img src="/assets/2024-02-03-img05.png" alt="" loading="lazy">
+  <img src="/assets/2024-02-18-img05.png" alt="" loading="lazy">
 </figure>
 
 ### Realistic Stealth Specials
@@ -64,7 +64,7 @@ Among the results were some impressive discounts, such as this <a href="https://
 Assessing the range of discounted red wines that are in stock and are available for collection in at least one store, we can see that a majority fall within a range of 25-30% discount against the average price of the particular bottle of wine. My guess is that a 30% discount is likely the threshold set by corporate guidelines for store management to encourage sales of inventory. 
 
 <figure>
-  <img src="/assets/2024-02-03-img06.png" alt="" loading="lazy">
+  <img src="/assets/2024-02-18-img06.png" alt="" loading="lazy">
   <figcaption>
     A majority of the red wines that are still in stock and have been discounted are offered at prices below 25-30% of the particular wine's average price across all Dan Murphy's stores in Victoria.
   </figcaption>
@@ -74,7 +74,7 @@ Assessing the range of discounted red wines that are in stock and are available 
 While writing this post I went to refresh the list of stealth specials. Ironically, at some point in the last month, Dan Murphy's updated their website which means my solution for acquiring their pricing data en masse (written in R) now faces access issues. I'll likely need to rewrite it in Python to gain access to its better automated web browser.
 
 <figure>
-  <img src="/assets/2024-02-03-img07.png" alt="" loading="lazy">
+  <img src="/assets/2024-02-18-img07.png" alt="" loading="lazy">
   <figcaption>
     A recent change to the Dan Murphy's website has put a temporary halt to identifying their stealth specials
   </figcaption>
