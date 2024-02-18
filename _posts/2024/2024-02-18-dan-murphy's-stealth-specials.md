@@ -22,7 +22,7 @@ For example, the two identical wines shown below have different prices as of 17/
 <figure>
   <img src="/assets/2024-02-18-img01.png" alt="" loading="lazy">
   <figcaption>
-    As of 17/01/2024 two identical wines with a 30% price variation, dependent on Dan Murphy's stores that are approx. 10 minutes drive from one another.
+    As of 17/01/2024 two identical wines at two different Dan's stores with a 30% price variation. The stores that are approx. 10 minutes drive from one another.
   </figcaption>
 </figure>
 
