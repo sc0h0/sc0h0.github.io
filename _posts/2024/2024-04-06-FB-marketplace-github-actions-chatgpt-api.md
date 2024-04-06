@@ -3,7 +3,14 @@ layout: post
 title: "Building a sophisticated Facebook Marketplace alert system with Github Actions and ChatGPT API"
 image: /assets/fbmp/castle.png
 ---
+We've moved a long way from the Trading Post 
 
+<figure>
+  <img src="/assets/fbmp/castle.png" alt="" loading="lazy">
+  <figcaption>
+    As of 17/01/2024 two identical wines at two different Dan's stores with a 30% price variation. The stores that are approx. 10 minutes drive from one another.
+  </figcaption>
+</figure>
 Facebook Marketplace has a feature which alerts you when an item is listed that matched your keyword.
 
 For example, 
