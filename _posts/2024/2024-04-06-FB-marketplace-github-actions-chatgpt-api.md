@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "How to build a sophisticated Facebook Marketplace alert system"
+title: "Building a sophisticated Facebook Marketplace alert system with Github Actions and ChatGPT API"
+image: /assets/2024-02-18-img01.png
 ---
 
 Facebook Marketplace has a feature which alerts you when an item is listed that matched your keyword.
