@@ -1,5 +1,3 @@
----
----
 <!doctype html>
 <html lang="en">
 <head>
@@ -34,6 +32,8 @@
   </style>
 {% else %}
   <link rel="stylesheet" href="{{ site.baseurl | prepend: site.url }}/styles.css">
+  <!-- Include your custom stylesheet here -->
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
 {% endif %}
 
 {% include head-custom.html %}
