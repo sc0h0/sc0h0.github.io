@@ -6,14 +6,9 @@ image: /assets/fbmp/castle.png
 
 We've come a long way since <a href="https://www.youtube.com/watch?v=dik_wnOE4dk">the days of the Trading Post (video)</a> however 
 
-<div class="figure-container">
-  <figure>
-    <img src="/assets/fbmp/castle.png" alt="" loading="lazy" style="width: 50%;">
-    <figcaption>
-      As of 17/01/2024 two identical wines at two different Dan's stores with a 30% price variation. The stores that are approx. 10 minutes drive from one another.
-    </figcaption>
-  </figure>
-</div>
+{:refdef: style="text-align: center;"}
+<img src="{{ '/fbmp/castle.png' | relative_url }}" alt="My Image" style="width: 50%;">
+{:refdef}
 
 
 
