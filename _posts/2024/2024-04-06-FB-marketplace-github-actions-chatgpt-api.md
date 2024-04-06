@@ -15,6 +15,9 @@ We've come a long way since <a href="https://www.youtube.com/watch?v=dik_wnOE4dk
 </figure>
 
 
+![Castle Image Description](/assets/fbmp/castle.png){: .center-image }
+
+
 Facebook Marketplace has a feature which alerts you when an item is listed that matched your keyword.
 
 For example, 
