@@ -3,16 +3,9 @@ layout: post
 title: "How to build a sophisticated Facebook Marketplace alert system"
 ---
 
-Onesss of my favourite websites <a href="https://pricehipster.com/">Price Hipster</a> tracks and displays the price changes of products online, allowing you to set up alerts based on your specified price threshold.
+Facebook Marketplace has a feature which alerts you when an item is listed that matched your keyword.
 
-About two years ago, Dan Murphy's products stopped being displayed and tracked on Price Hipster due to unknown reasons. To this day, the products remain absent from the site.
+For example, 
 
-As I had become dependent on this feature to find wine at discounted prices, I set out to build my own price tracker. This way, I could continue to complement my wife's expensive taste in <a href="https://toscanos.com.au/">Toscano's</a> cheese with equally fine wines, acquired at more affordable prices.
-
-### Unexpected Results
-I pieced together a script to collect Dan Murphy's wine price data <a href="https://en.wikipedia.org/wiki/Web_scraping">"en masse"</a>. These scripts ran several times over a few weeks to compile price snapshots, allowing me to spot price drops.
-
-Eventually I noticed price drops on some interesting wines so I added them to my cart for checkout. Strangely, the prices at checkout did not match those captured by the data collection script. 
-
-After some digging around, I found that the VPN used during the data collection process (to avoid the risk of Dan's perma-banning my own IP address) was having a different Click&Collect store automatically assigned than my local one.
+The problem is that it's a poorly executed feature and in my view heavily geared towards driving Facebook app engagement (eg false positive alerts) rather than what you wish it did. 
 
