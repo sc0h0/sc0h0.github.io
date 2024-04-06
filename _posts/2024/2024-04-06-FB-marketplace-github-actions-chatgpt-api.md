@@ -1,5 +1,6 @@
 ---
 layout: post
+title: "How to build a sophisticated Facebook Marketplace alert system"
 ---
 
 Onesss of my favourite websites <a href="https://pricehipster.com/">Price Hipster</a> tracks and displays the price changes of products online, allowing you to set up alerts based on your specified price threshold.
