@@ -4,14 +4,6 @@ title: "Building a sophisticated Facebook Marketplace alert system with Github A
 image: /assets/fbmp/castle.png
 ---
 
-<style>
-  .figure-container {
-    display: flex;
-    justify-content: center; /* Horizontally center the content */
-    align-items: center; /* Vertically center the content, if needed */
-    flex-direction: column; /* Stack items vertically */
-  }
-</style>
 
 We've come a long way since <a href="https://www.youtube.com/watch?v=dik_wnOE4dk">the days of the Trading Post (video)</a> however 
 
