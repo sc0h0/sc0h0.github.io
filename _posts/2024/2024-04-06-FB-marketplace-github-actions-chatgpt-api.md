@@ -10,9 +10,17 @@ image: /assets/fbmp/castle.png
 
 If The Castle (1997) was filmed today, would <a href="https://www.youtube.com/watch?v=dik_wnOE4dk">Steve Kerrigan</a> instead be endlessly scrolling through Facebook Marketplace and forever sending screenshots of jousting sticks to the Kerrigan family WhatsApp group?
 
-The Facebook Marketplace app includes a feature that notifies you when a listing matches a specified keyword. Unfortunately, this feature is poorly executed, appearing more intent on driving app engagement with false positive alerts than truly helping users find what they're searching for.
+The Facebook Marketplace app includes a feature that notifies you when a listing matches a specified keyword.
 
-To solve the problem of inaccurate alerts, untimely alerts and alerts only observed within Facebook app, I built an open source [1] alert system running on Github Actions and applying advanced 'listing filtering' with ChatGPT's API. 
+Unfortunately, this feature is poorly executed, appearing more intent on driving app engagement with false positive alerts than truly helping users find what they're searching for.
+
+To address the issues of:
+
+- Inaccurate alerts,
+- Untimely alerts, and
+- Alerts only observed within Facebook app,
+  
+I built an open source [1] alert system running on Github Actions and applying advanced 'listing filtering' with ChatGPT's API. 
 
 <figure>
   <img src="/assets/fbmp/img02.png" alt="" loading="lazy">
