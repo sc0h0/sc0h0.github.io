@@ -93,7 +93,7 @@ def details_are_exclude(details_collected_text):
     return any(keyword in text_lower for keyword in keywords)
 {% endhighlight %}
 
-Next, given the term `'grange'` is popular amongst wine and Holden Special Vehicle (HSV) enthusiasts, the ChatGPT API is used to indicate whether the listing is a peiece of funiture. 
+Next, given the term `'grange'` is popular amongst wine and Holden Special Vehicle (HSV) enthusiasts, the ChatGPT API is used to indicate whether the listing is a piece of funiture. 
 
 {% highlight python %}
 prompt = f"""
