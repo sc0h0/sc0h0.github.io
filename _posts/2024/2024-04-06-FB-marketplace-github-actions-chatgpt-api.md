@@ -20,3 +20,7 @@ To solve the problem of inaccurate alerts, untimely alerts and alerts only obser
     Process flow to generate accurate alerts when new Facebook Marketplace listings are created.
   </figcaption>
 </figure>
+
+For example, <a href="https://github.com/sc0h0/fb_mp_hali">this tool</a> has been set up to monitor and alert for Hali rug listing that are 2.8m by 2.3m with a 20% tolerance.
+
+The first step is to extract 
