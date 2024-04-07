@@ -14,4 +14,3 @@ The Facebook Marketplace app includes a feature that notifies you when a listing
 
 To solve the problem of inaccurate alerts, untimely alerts and alerts only observed within Facebook app, I built an open source [1] alert system running on Github Actions and applying advanced 'listing filtering' with ChatGPT's API. 
 
-
