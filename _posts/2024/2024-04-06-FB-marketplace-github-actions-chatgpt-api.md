@@ -48,7 +48,9 @@ def heading_details_keyword(details_collected_text, title_collected_text):
         return False  
 {% endhighlight %}
 
-Then (shown in the second yellow diamond), the ChatGPT API is used to transform the listing title and description into a more structured format that can be used by Python. The ChatGPT prompt sent the API is shown below.
+Then (shown in the second yellow diamond), the ChatGPT API is used to transform the listing title and description into a more structured format that can be used by Python.
+
+The ChatGPT prompt sent the API is shown below.
 
 {% highlight python %}
 prompt = f"""
