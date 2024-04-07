@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Building a 'sophisticated' Facebook Marketplace alert system with Github Actions and ChatGPT API"
+title: "A 'sophisticated' Facebook Marketplace alert system using Github Actions and ChatGPT's API"
 image: /assets/fbmp/castle.png
 ---
 
