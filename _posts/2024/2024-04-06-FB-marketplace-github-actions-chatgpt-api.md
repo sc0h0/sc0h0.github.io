@@ -15,12 +15,13 @@ The Facebook Marketplace app includes a feature that notifies you when a listing
 Unfortunately this feature is poorly executed, appearing more intent on driving app engagement with false positive alerts than truly helping users find what they're searching for.
 
 ### Defining the problem
-- Inaccurate alerts
-- Untimely alerts
-- Alerts only observed within the Facebook app
+The Facebook Marketplace item-listing notification feature is:
+- Inaccurate
+- Untimely
+- Only notified by having the app or viewing the website
 
 ### The solution
-Drawing inspiration from Simon Wilison's brilliant post on (and coining of) <a href="https://simonwillison.net/2020/Oct/9/git-scraping/">Git scraping</a>, and built an open source alert system running on GitHub Actions and applied 'innovative' filtering using ChatGPT's API. 
+Drawing inspiration from Simon Wilison's brilliant post on (and coining of) <a href="https://simonwillison.net/2020/Oct/9/git-scraping/">Git scraping</a>, I built an open source alert system running on GitHub Actions and applied 'innovative' filtering using ChatGPT's API. 
 
 <figure>
   <img src="/assets/fbmp/img02.png" alt="" loading="lazy">
