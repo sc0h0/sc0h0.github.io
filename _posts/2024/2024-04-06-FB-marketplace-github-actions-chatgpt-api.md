@@ -14,3 +14,9 @@ The Facebook Marketplace app includes a feature that notifies you when a listing
 
 To solve the problem of inaccurate alerts, untimely alerts and alerts only observed within Facebook app, I built an open source [1] alert system running on Github Actions and applying advanced 'listing filtering' with ChatGPT's API. 
 
+<figure>
+  <img src="/assets/fbmp/img02.png" alt="" loading="lazy">
+  <figcaption>
+    Process flow to generate accurate alerts when new Facebook Marketplace listings are created.
+  </figcaption>
+</figure>
