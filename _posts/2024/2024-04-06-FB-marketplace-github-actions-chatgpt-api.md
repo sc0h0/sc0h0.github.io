@@ -25,7 +25,7 @@ Inspired by Simon Wilison's brilliant post on (and coining of) <a href="https://
 <figure>
   <img src="/assets/fbmp/img02.png" alt="" loading="lazy">
   <figcaption>
-    A process flow showing an entire solution running on GitHub Actions. A Cron job triggers a Python script every few hours to scrape recent listings. Listings are fed through basic logic before being passed through a ChatGPT API as a final test to understand additional attributes that feed into the alert criteria. If the listing matches, an email notification is triggered.
+    A process flow illustrates a complete solution operating on GitHub Actions. A cron job activates a Python script every few hours to scrape recent listings. These listings are processed through basic logic and then analysed by the ChatGPT API as a final step to discern additional attributes that contribute to the alert criteria. If a listing matches, an email notification is triggered.
   </figcaption>
 </figure>
 
