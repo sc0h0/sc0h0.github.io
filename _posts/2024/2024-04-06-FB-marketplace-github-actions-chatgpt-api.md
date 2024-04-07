@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "A 'sophisticated' Facebook Marketplace alert system using Github Actions and ChatGPT's API"
+title: "A 'sophisticated' Facebook Marketplace alert system using GitHub Actions and ChatGPT's API"
 image: /assets/fbmp/castle.png
 ---
 
@@ -16,9 +16,9 @@ Unfortunately, this feature is poorly executed, appearing more intent on driving
 
 To address the issues of:
 
-- Inaccurate alerts,
-- Untimely alerts, and
-- Alerts only observed within Facebook app,
+- Inaccurate alerts
+- Untimely alerts
+- Alerts only observed within the Facebook app,
   
 I built an open source alert system running on Github Actions and applying advanced filtering using ChatGPT's API. 
 
@@ -34,7 +34,7 @@ I built an open source alert system running on Github Actions and applying advan
 
 Basic filtering (shown in the first yellow diamond) is applied to ensure that either the listing title or description contains the word `'hali'`. 
 
-This is because Facebook Marketplace will sometimes insert 'relevant' listings that don't necessarily match the specific keyword, and so these must be filtered. Filtering at this stage is also a way to save on usage costs of the ChatGPI API in the next step. 
+This is because Facebook Marketplace will sometimes insert 'relevant' listings that don't necessarily match the specific keyword, and so these must be filtered. Filtering at this stage is also a way to save on usage costs of the ChatGPT API in the next step. 
 
 {% highlight python %}
 def heading_details_keyword(details_collected_text, title_collected_text):
@@ -66,7 +66,7 @@ Note: Your response should strictly follow the 'yes|d1|d2' or 'no' format withou
 ### Example: Grange Furniture
 <a href="https://github.com/sc0h0/fb_mp_watch">This configuration</a> will monitor and alert for any Grange furniture listings. 
 
-Unfortunately, there is a funiture store located on Grange Rd, Cheltenham and some furniture is listed as Grange style. The preliminary cost-saving filter below ensures that API costs are kept to a minimum. 
+Unfortunately, there is a furniture store located on Grange Rd, Cheltenham and some furniture is listed as Grange style. The preliminary cost-saving filter below ensures that API costs are kept to a minimum. 
 
 {% highlight python %}
 def details_are_exclude(details_collected_text):
@@ -77,7 +77,7 @@ def details_are_exclude(details_collected_text):
     return any(keyword in text_lower for keyword in keywords)
 {% endhighlight %}
 
-Next, given the term `'grange'` is popular amongst wine and Holden Special Vehicle (HSV) enthusiasts, the ChatGPT API is used to indicate whether the listing is a piece of funiture. 
+Next, given the term `'grange'` is popular amongst wine and Holden Special Vehicle (HSV) enthusiasts, the ChatGPT API is used to indicate whether the listing is a piece of furniture. 
 
 {% highlight python %}
 prompt = f"""
