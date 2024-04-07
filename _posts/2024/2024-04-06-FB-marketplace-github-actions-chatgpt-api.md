@@ -25,7 +25,7 @@ Inspired by Simon Wilison's brilliant post on (and coining of) <a href="https://
 <figure>
   <img src="/assets/fbmp/img02.png" alt="" loading="lazy">
   <figcaption>
-    Process flow to generate accurate alerts when new Facebook Marketplace listings are created.
+    Process flow to showing an entire solution run on GitHub Actions. A Cron job triggers a Python script every few hours to scrape recent listings. Listings a fed through basic logic before being passed through a ChatGPT API as a final test to understand whether the listing matches the desired criteria. If the listing matches, an email notification is triggered.
   </figcaption>
 </figure>
 
