@@ -115,4 +115,4 @@ else:
 {% endhighlight %}
 
 ### End
-Feel free to fork and modify either repository to set up your own alerts!
+Feel free to fork and modify either repository (linked in the examples above) to set up your own Facebook Marketplace alerts!
