@@ -10,7 +10,11 @@ image: /assets/fbmp/castle.png
 
 If The Castle (1997) was filmed today, would <a href="https://www.youtube.com/watch?v=dik_wnOE4dk">Steve Kerrigan</a> instead be endlessly scrolling through Facebook Marketplace and forever sending screenshots of jousting sticks to the Kerrigan family WhatsApp group?
 
-If you have explored the features of the Facebook Marketplace app, you would have noticed the feature which sends a notification when an item is listed that matches a keyword of your choice.
+The Facebook Marketplace app includes a feature that notifies you when a listing matches a specified keyword. Unfortunately, this feature is poorly executed, appearing more intent on driving app engagement with false positive alerts than truly helping users find what they're searching for.
 
-The problem is that it's a poorly executed feature and in my view heavily geared towards driving Facebook app engagement (eg false positive alerts) rather than what you wish it did. 
+To solve the following problems:
+- Inaccurate alerts
+- Untimely alerts
+- Alerts only observed within Facebook app
+
 
