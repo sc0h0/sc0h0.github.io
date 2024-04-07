@@ -18,9 +18,9 @@ To address the issues of:
 
 - Inaccurate alerts
 - Untimely alerts
-- Alerts only observed within the Facebook app,
+- Alerts only observed within the Facebook app
   
-I built an open source alert system running on Github Actions and applying advanced filtering using ChatGPT's API. 
+I built an open source alert system running on GitHub Actions and applying advanced filtering using ChatGPT's API. 
 
 <figure>
   <img src="/assets/fbmp/img02.png" alt="" loading="lazy">
