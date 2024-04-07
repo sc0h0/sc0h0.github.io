@@ -30,7 +30,7 @@ I built an open source alert system running on Github Actions and applying advan
 </figure>
 
 ### Example: Hali Rugs
-<a href="https://github.com/sc0h0/fb_mp_hali">tThis configuration</a> will monitor and alert for Hali rug listings that are 2.8m by 2.3m with a 20% tolerance in dimensions.
+<a href="https://github.com/sc0h0/fb_mp_hali">This configuration</a> will monitor and alert for Hali rug listings that are 2.8m by 2.3m with a 20% tolerance in dimensions.
 
 Basic filtering (shown in the first yellow diamond) is applied to ensure that either the listing title or description contains the word `'hali'`. 
 
