@@ -12,9 +12,11 @@ If The Castle (1997) was filmed today, would <a href="https://www.youtube.com/wa
 
 The Facebook Marketplace app includes a feature that notifies you when a listing matches a specified keyword. Unfortunately, this feature is poorly executed, appearing more intent on driving app engagement with false positive alerts than truly helping users find what they're searching for.
 
-To solve the following problems:
+To solve the following problems...
 - Inaccurate alerts
 - Untimely alerts
 - Alerts only observed within Facebook app
+
+I built an open source [1] alert system running on Github Actions and applying advanced 'listing filtering' with ChatGPT's API. 
 
 
