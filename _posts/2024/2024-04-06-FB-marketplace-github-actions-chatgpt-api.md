@@ -15,7 +15,7 @@ The Facebook Marketplace app includes a feature that notifies you when a listing
 Unfortunately this feature is poorly executed, appearing more intent on driving app engagement with false positive alerts than truly helping users find what they're searching for.
 
 ### Defining the problem
-The Facebook Marketplace item-listing notification feature is:
+The Facebook Marketplace new-listing notification feature is:
 - Inaccurate
 - Untimely
 - Only notified by having the app or viewing the website
