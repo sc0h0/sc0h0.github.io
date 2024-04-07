@@ -15,10 +15,10 @@ The Facebook Marketplace app includes a feature that notifies you when a listing
 Unfortunately this feature is poorly executed, appearing more intent on driving app engagement with false positive alerts than truly helping users find what they're searching for.
 
 ### Defining the problem
-The Facebook Marketplace new-listing notification feature is:
-- Inaccurate
-- Untimely
-- Only notified by having the app or viewing the website
+The Facebook Marketplace new-listing notification feature:
+- Is inaccurate
+- Is untimely
+- Only notifies you through the app or viewing the website
 
 ### The solution
 Drawing inspiration from Simon Wilison's brilliant post on (and coining of) <a href="https://simonwillison.net/2020/Oct/9/git-scraping/">Git scraping</a>, I built an open source alert system running on GitHub Actions and applied 'innovative' filtering using ChatGPT's API. 
