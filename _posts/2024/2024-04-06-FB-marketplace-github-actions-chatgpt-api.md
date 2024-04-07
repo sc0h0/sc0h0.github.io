@@ -61,3 +61,32 @@ Title: {heading}
 Note: Your response should strictly follow the 'yes|d1|d2' or 'no' format without additional explanations.
 """
 {% endhighlight %}
+
+### Example: Grange Furniture
+<a href="https://github.com/sc0h0/fb_mp_watch">This configuration</a> will monitor and alert for any Grange furniture listings. 
+
+A preliminary cost-saving filter ensures that API costs are kept to a minimum. Unfortunately, there is a funiture store located on Grange Rd, Cheltenham and some furniture is listed as Grange style.
+
+{% highlight python %}
+def details_are_exclude(details_collected_text):
+    # Convert the collected text to lowercase for case-insensitive comparison
+    text_lower = details_collected_text.lower()
+    keywords = ['grange rd', 'grange road', 'near grange', 'grange style', 'grange-style', 'grange view']
+    # Check if the lowercase text contains
+    return any(keyword in text_lower for keyword in keywords)
+{% endhighlight %}
+
+Next, given the term `'grange'` is popular amongst wine and Holden Special Vehicle (HSV) enthusiasts, the ChatGPT API is used to indicate whether the listing is a peiece of funiture. 
+
+{% highlight python %}
+prompt = f"""
+Consider the following description and title for an item listed on Facebook Marketplace. 
+Your task is to determine if the content suggests that the item is NOT a piece of furniture. 
+The item description is provided first, followed by the title, separated by '|||' for clarity.
+Description: {description}
+|||
+Title: {heading}
+Based on the description and title, is the item a piece of furniture? Please respond with 'yes' if it is a piece of furniture, and 'no' otherwise.
+"""
+{% endhighlight %}
+
