@@ -5,18 +5,10 @@ image: /assets/fbmp/castle.png
 ---
 
 
+
+<img class="small right" src="/assets/fbmp/castle.png" alt="A scene from The Castle" loading="lazy">
+
 We've come a long way since <a href="https://www.youtube.com/watch?v=dik_wnOE4dk">the days of the Trading Post (video)</a> however 
-
-<figure>
-  <img src="/assets/fbmp/castle.png" alt="" loading="lazy">
-  <figcaption>
-    As of 17/01/2024 two identical wines at two different Dan's stores with a 30% price variation. The stores that are approx. 10 minutes drive from one another.
-  </figcaption>
-</figure>
-
-
-![Castle Image Description](/assets/fbmp/castle.png){: .myblog-center-image }
-
 
 Facebook Marketplace has a feature which alerts you when an item is listed that matched your keyword.
 
