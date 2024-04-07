@@ -20,7 +20,7 @@ To address the issues of:
 - Untimely alerts, and
 - Alerts only observed within Facebook app,
   
-I built an open source [1] alert system running on Github Actions and applying advanced 'listing filtering' with ChatGPT's API. 
+I built an open source alert system running on Github Actions and applying advanced filtering using ChatGPT's API. 
 
 <figure>
   <img src="/assets/fbmp/img02.png" alt="" loading="lazy">
@@ -29,9 +29,11 @@ I built an open source [1] alert system running on Github Actions and applying a
   </figcaption>
 </figure>
 
-For example, <a href="https://github.com/sc0h0/fb_mp_hali">this tool</a> has been set up to monitor and alert for Hali rug listing that are 2.8m by 2.3m with a 20% tolerance.
+For example, <a href="https://github.com/sc0h0/fb_mp_hali">this tool</a> has been set up to monitor and alert for Hali rug listing that are 2.8m by 2.3m with a 20% tolerance in dimensions.
 
-Basic filtering (shown in the first yellow diamond) is applied to ensure that either the listing title or description contains the word 'hali'. Facebook Marketplace will sometimes insert 'relevant' listings that don't necessarily match the specific keyword, and so these must be filtered. Filtering here is also a way to save on usage costs of the ChatGPI API in the next step. 
+Basic filtering (shown in the first yellow diamond) is applied to ensure that either the listing title or description contains the word `'hali'`. 
+
+Facebook Marketplace will sometimes insert 'relevant' listings that don't necessarily match the specific keyword, and so these must be filtered. Filtering here is also a way to save on usage costs of the ChatGPI API in the next step. 
 
 {% highlight python %}
 def heading_details_keyword(details_collected_text, title_collected_text):
