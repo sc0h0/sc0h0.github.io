@@ -82,7 +82,7 @@ else:
 ### Example: Grange Furniture
 <a href="https://github.com/sc0h0/fb_mp_watch">This configuration</a> will monitor and alert for any Grange furniture listings. 
 
-A preliminary cost-saving filter ensures that API costs are kept to a minimum. Unfortunately, there is a funiture store located on Grange Rd, Cheltenham and some furniture is listed as Grange style.
+Unfortunately, there is a funiture store located on Grange Rd, Cheltenham and some furniture is listed as Grange style. The preliminary cost-saving filter below ensures that API costs are kept to a minimum. 
 
 {% highlight python %}
 def details_are_exclude(details_collected_text):
