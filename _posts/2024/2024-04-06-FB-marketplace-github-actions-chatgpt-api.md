@@ -20,7 +20,7 @@ To address the issues of:
 - Untimely alerts
 - Alerts only observed within the Facebook app
   
-Inspired by Simon Wilison's brilliant post on (and coining of) <a href="https://simonwillison.net/2020/Oct/9/git-scraping/">Git scraping</a>, I built an open source alert system running on GitHub Actions and applied 'innovative' filtering using ChatGPT's API. 
+I was inspired by Simon Wilison's brilliant post on (and coining of) <a href="https://simonwillison.net/2020/Oct/9/git-scraping/">Git scraping</a>, and built an open source alert system running on GitHub Actions and applied 'innovative' filtering using ChatGPT's API. 
 
 <figure>
   <img src="/assets/fbmp/img02.png" alt="" loading="lazy">
