@@ -35,9 +35,9 @@ Drawing inspiration from Simon Wilison's brilliant post on (and coining of) <a h
 
 Basic filtering (shown in the first yellow diamond) is applied to ensure that either the listing title or description contains the word `'hali'`. 
 
-This is because Facebook Marketplace will sometimes insert 'relevant' listings that don't necessarily match the specific keyword, and so these must be filtered. 
+This is required because Facebook Marketplace will sometimes insert 'relevant' listings that don't necessarily match the specific keyword, and so these can be filtered out using basic string matching.
 
-Filtering at this stage is also a way to save on usage costs of the ChatGPT API in the next step. 
+_Side note: a simple string filter is also a way to save on usage costs of the ChatGPT API in the next step._
 
 {% highlight python %}
 def heading_details_keyword(details_collected_text, title_collected_text):
