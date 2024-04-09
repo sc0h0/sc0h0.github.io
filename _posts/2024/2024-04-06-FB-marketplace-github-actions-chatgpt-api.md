@@ -15,10 +15,10 @@ The Facebook Marketplace app includes a feature that notifies you when a listing
 Unfortunately this feature is poorly executed, appearing more intent on driving app engagement with false positive alerts than truly helping users find what they're searching for.
 
 ### Defining the problem
-The Facebook Marketplace new-listing notification feature:
+The Facebook Marketplace 'new listing' notification feature:
 - Is inaccurate
 - Is untimely
-- Only notifies you through the app or viewing the website
+- Only notifies you through the app or by visiting the website
 
 ### The solution
 Drawing inspiration from Simon Wilison's brilliant post on (and coining of) <a href="https://simonwillison.net/2020/Oct/9/git-scraping/">Git scraping</a>, I built an open source alert system running on GitHub Actions and applied 'innovative' filtering using ChatGPT's API. 
@@ -67,6 +67,21 @@ Note: Your response should strictly follow the 'yes|d1|d2' or 'no' format withou
 """
 {% endhighlight %}
 
+Finally, the dimensions can be tested.
+{% highlight python %}
+# Calculate the minimum and maximum dimensions with tolerance for both width and length
+min_width = desired_width * (1 - tolerance)
+max_width = desired_width * (1 + tolerance)
+min_length = desired_length * (1 - tolerance)
+max_length = desired_length * (1 + tolerance)
+
+# Check if either combination of dimensions are within the desired range
+if ((min_width <= dimension1 <= max_width and min_length <= dimension2 <= max_length) or
+   (min_width <= dimension2 <= max_width and min_length <= dimension1 <= max_length)):
+    return True
+else:
+    return False
+{% endhighlight %}
 
 ### Example: Grange Furniture
 <a href="https://github.com/sc0h0/fb_mp_watch">This configuration</a> will monitor and alert for any Grange furniture listings. 
@@ -98,21 +113,7 @@ Based on the description and title, is the item a piece of furniture? Please res
 """
 {% endhighlight %}
 
-Finally, the dimensions can be tested.
-{% highlight python %}
-# Calculate the minimum and maximum dimensions with tolerance for both width and length
-min_width = desired_width * (1 - tolerance)
-max_width = desired_width * (1 + tolerance)
-min_length = desired_length * (1 - tolerance)
-max_length = desired_length * (1 + tolerance)
 
-# Check if either combination of dimensions are within the desired range
-if ((min_width <= dimension1 <= max_width and min_length <= dimension2 <= max_length) or
-   (min_width <= dimension2 <= max_width and min_length <= dimension1 <= max_length)):
-    return True
-else:
-    return False
-{% endhighlight %}
 
 ### End
 Feel free to fork and modify either repository (linked in the examples above) to set up your own Facebook Marketplace alerts!
