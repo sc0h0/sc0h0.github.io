@@ -21,7 +21,7 @@ The Facebook Marketplace 'new listing' notification feature:
 - Only notifies you through the app or by visiting the website
 
 ### The solution
-Drawing inspiration from Simon Wilison's brilliant post on (and coining of) <a href="https://simonwillison.net/2020/Oct/9/git-scraping/">Git scraping</a>, I built an open source alert system running on GitHub Actions and applied 'innovative' filtering using ChatGPT's API. 
+Drawing inspiration from Simon Willison's brilliant post on (and coining of) <a href="https://simonwillison.net/2020/Oct/9/git-scraping/">Git scraping</a>, I built an open source alert system running on GitHub Actions and applied 'innovative' filtering using ChatGPT's API. 
 
 <figure>
   <img src="/assets/fbmp/img02.png" alt="" loading="lazy">
@@ -83,7 +83,7 @@ else:
     return False
 {% endhighlight %}
 
-If the target dimensions are achieved, then an email notification is triggerd containing the URL to the facebook listing.
+If the listing meets the target dimensions, an email notification containing the URL to the Facebook listing is triggered.
 
 {% highlight python %}
 # Email body - HTML version
