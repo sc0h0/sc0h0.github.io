@@ -67,7 +67,7 @@ Note: Your response should strictly follow the 'yes|d1|d2' or 'no' format withou
 """
 {% endhighlight %}
 
-Finally, the dimensions can be tested.
+The dimensions can then be tested against the target dimensions.
 {% highlight python %}
 # Calculate the minimum and maximum dimensions with tolerance for both width and length
 min_width = desired_width * (1 - tolerance)
@@ -81,6 +81,21 @@ if ((min_width <= dimension1 <= max_width and min_length <= dimension2 <= max_le
     return True
 else:
     return False
+{% endhighlight %}
+
+If the target dimensions are true, then an email notification is triggerd containing the URL to the facebook listing.
+
+{% highlight python %}
+# Email body - HTML version
+html = f"""\
+<html>
+  <body>
+    <p>Hi,<br>
+       Check out this heli rug item with dimensions we want: <a href="https://www.facebook.com/marketplace/item/{item_id}">Item Link</a>
+    </p>
+  </body>
+</html>
+"""
 {% endhighlight %}
 
 ### Example: Grange Furniture
