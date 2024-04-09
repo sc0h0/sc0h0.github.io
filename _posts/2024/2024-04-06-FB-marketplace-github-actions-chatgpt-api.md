@@ -83,7 +83,7 @@ else:
     return False
 {% endhighlight %}
 
-If the target dimensions are true, then an email notification is triggerd containing the URL to the facebook listing.
+If the target dimensions are achieved, then an email notification is triggerd containing the URL to the facebook listing.
 
 {% highlight python %}
 # Email body - HTML version
