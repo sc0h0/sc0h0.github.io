@@ -16,17 +16,30 @@ The DataVic platform:
 - Inconsistently provides detailed data profiling
 
 ### The idea
-Having recently watched a <a href="https://www.youtube.com/watch?v=PwFrN3dFiwY">demonstration</a> of making good use of Google Gemini Pro's large context window, I thought that with some web scraping and data preperation, a large text file profiling all available data files on DataVic might just allow me to use Gemini to query the available data.
+Having recently watched a <a href="https://www.youtube.com/watch?v=PwFrN3dFiwY">demonstration</a> on effectively using Google Gemini Pro's large context window, I realised that with some web scraping and data preparation, a large text file profiling all available data files on DataVic might enable me to use Gemini for discovering the available data.
 
 ### The approach
 I wrote a script that downloaded every available CSV from the DataVic platform and based on each CSV created a json file that profiled each CSV. For example,
+
 <figure>
   <img src="/assets/vicopendata/sample_json.png" alt="" loading="lazy">
   <figcaption>
-    A sample json file profiling 
+    A sample json file profiling data available on DataVic
   </figcaption>
 </figure>
-In total there were around 670 CSV files however only 300 had more than 500 rows
+
+I initially had some issues automating the opening of Excel files and so decided to limit the analysis to simple CSVs. In total there were around 670 CSV files however only 300 had more than 500 rows (I decided less than 500 rows is more a table rather than data). There should have been more CSVs however it appears some of the APIs referenced by DataVic were broken.
+
+I wrote a script that downloaded every available CSV from the DataVic platform and based on each CSV created a json file that profiled each CSV. For example,
+<figure>
+  <img src="/assets/vicopendata/nodata.png" alt="" loading="lazy">
+  <figcaption>
+    Broken links on VicGov.
+  </figcaption>
+</figure>
+
+Noting that as of July 2024 the platform boasts around 5,700 datasets, that's far from the 300 that in my opinion are true datasets.
+
 
 
 ### End
