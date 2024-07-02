@@ -27,7 +27,7 @@ I wrote a script that downloaded every available CSV from the DataVic platform a
 For example:
 
 <figure>
-  <img src="/assets/vicopendata/sample_json.png" alt="" loading="lazy">
+  <img src="/assets/vicopendata/sample_json_2.png" alt="" loading="lazy">
   <figcaption>
     A sample json file profiling data available on DataVic
   </figcaption>
