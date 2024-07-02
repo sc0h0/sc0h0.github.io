@@ -51,6 +51,17 @@ Noting that as of July 2024 the platform boasts around 5,700 datasets, that's fa
   </figcaption>
 </figure>
 
+### The fun
+The best way to demonstrate the capabilities of Google Gemini is to DIY and use the video linked above as a guide. I have shared the dataset profile file below however here are some inspiring examples.
+
+<figure>
+  <img src="/assets/vicopendata/example1.png" alt="" loading="lazy">
+</figure>
+
+
+### The serious
+I can easily see this technology being used in large companies that have employees spending a lot of their time tracking down data or using one data source not knowning there is another, more reliable data source.
+The data-profiling file used only around 500k of the 2M available tokens, so perhaps it could handle a file profiling around 1200 datasets.
 
 
 ### End
