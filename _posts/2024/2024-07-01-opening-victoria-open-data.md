@@ -9,7 +9,7 @@ The State Government of Victoria's _"open data platform"_ <a href="https://www.d
 
 However, every time I've used it, I've struggled to determine what data is available. The search function caters more to users who know exactly what they're looking for rather than those exploring available data.
 
-### Defining the problem
+### The problem
 The DataVic platform:
 - Provides insufficient discovery tools for exploring data
 - Inconsistently provides detailed data profiling
@@ -69,7 +69,10 @@ The best way to demonstrate the capabilities of Google Gemini is to DIY and use 
 
 ### The serious
 I can easily see this technology being used in large companies that have employees spending a lot of their time tracking down data or using one data source not knowning there is another, more reliable data source.
-The data-profiling file used only around 500k of the 2M available tokens, so perhaps it could handle a file profiling around 1200 datasets.
+As of today, Gemini has around 2M available tokens which translates to profiling around 1200 datasets in a given context. 
+
+### Resources
+My GitHub repository containing master dataset profile and scripts used to scrape data: https://github.com/sc0h0/openingvicgovdata
 
 
 ### End
