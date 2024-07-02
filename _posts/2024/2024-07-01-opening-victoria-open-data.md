@@ -54,9 +54,13 @@ Noting that as of July 2024 the platform boasts around 5,700 datasets, that's fa
 ### The fun
 The best way to demonstrate the capabilities of Google Gemini is to DIY and use the video linked above as a guide. I have shared the dataset profile file below however here are some inspiring examples.
 
+## Example: As an "eSafety advisor"...
+
 <figure>
   <img src="/assets/vicopendata/example1.png" alt="" loading="lazy">
 </figure>
+
+## Example: As an "eSafety advisor"...
 
 
 ### The serious
