@@ -16,47 +16,17 @@ The DataVic platform:
 - Inconsistently provides detailed data profiling
 
 ### The idea
-Having recently watched a demonstration of making good use of Google Gemini Pro's large context window, I thought that with some web scraping and data preperation, a large text file profiling all available data files on DataVic might just 
-allow me to use Gemini to query the available data.
+Having recently watched a <a href="https://www.youtube.com/watch?v=PwFrN3dFiwY">demonstration</a> of making good use of Google Gemini Pro's large context window, I thought that with some web scraping and data preperation, a large text file profiling all available data files on DataVic might just allow me to use Gemini to query the available data.
 
 ### The approach
 I wrote a script that downloaded every available CSV from the DataVic platform and based on each CSV created a json file that profiled each CSV. For example,
-{% highlight javascript %}
-{
-        "url": "https://discover.data.vic.gov.au/dataset/air-quality-observations",
-        "filename": "air-quality-observations.csv",
-        "title": "Air Quality Observations",
-        "description": "This dataset describes observations made of air quality by sensors distributed in Ballarat.",
-        "filesize": 14429.46875,
-        "rows": 125492,
-        "columns": [
-            "device_id",
-            "date_time",
-            "location_description",
-            "latitude",
-            "longitude",
-            "pm1"
-        ],
-        "sample_data": [
-            {
-                "device_id": "ems-b879",
-                "date_time": "2020-04-01T01:30:54+00:00",
-                "location_description": "Fairyland",
-                "latitude": -37.546758,
-                "longitude": 143.823172,
-                "pm1": 4
-            },
-            {
-                "device_id": "ems-b879",
-                "date_time": "2020-04-01T03:30:53+00:00",
-                "location_description": "Fairyland",
-                "latitude": -37.546758,
-                "longitude": 143.823172,
-                "pm1": 0
-            }
-        ]
-    }
-{% endhighlight %}
+<figure>
+  <img src="/assets/vicopendata/sample_json.png" alt="" loading="lazy">
+  <figcaption>
+    A sample json file profiling 
+  </figcaption>
+</figure>
+In total there were around
 
 
 ### End
