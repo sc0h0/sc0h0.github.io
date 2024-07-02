@@ -33,9 +33,8 @@ For example:
   </figcaption>
 </figure>
 
-I initially had some issues automating the opening of Excel files and so decided to limit the analysis to simple CSVs. In total there were around 670 CSV files however only 300 had more than 500 rows (I decided less than 500 rows is more a table rather than data). There should have been more CSVs however it appears some of the APIs referenced by DataVic were broken.
+I had some issues with opening Excel files and so decided to limit the analysis to simple CSVs. In total there were around 670 CSV files however only 300 had more than 500 rows (I decided less than 500 rows is more a table rather than data). There should have been more CSVs however it appears some of the APIs referenced by DataVic were broken.
 
-I wrote a script that downloaded every available CSV from the DataVic platform and based on each CSV created a json file that profiled each CSV. For example,
 <figure>
   <img src="/assets/vicopendata/nodata.png" alt="" loading="lazy">
   <figcaption>
@@ -43,7 +42,14 @@ I wrote a script that downloaded every available CSV from the DataVic platform a
   </figcaption>
 </figure>
 
-Noting that as of July 2024 the platform boasts around 5,700 datasets, that's far from the 300 that in my opinion are true datasets.
+Noting that as of July 2024 the platform boasts around 5,700 datasets, that's far from the 300 that in my opinion are true datasets!
+
+<figure>
+  <img src="/assets/vicopendata/searches_main.png" alt="" loading="lazy">
+  <figcaption>
+    VicGov's claimed number of open datasets.
+  </figcaption>
+</figure>
 
 
 
