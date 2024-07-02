@@ -26,7 +26,7 @@ I wrote a script that downloaded every available CSV from the DataVic platform a
     A sample json file profiling 
   </figcaption>
 </figure>
-In total there were around
+In total there were around 670 CSV files however only 300 had more than 500 rows
 
 
 ### End
