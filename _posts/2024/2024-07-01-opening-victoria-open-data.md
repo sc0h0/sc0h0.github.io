@@ -60,7 +60,7 @@ The best way to demonstrate the capabilities of Google Gemini is to DIY and use 
   <img src="/assets/vicopendata/example1.png" alt="" loading="lazy">
 </figure>
 
-## Example: As an "eSafety advisor"...
+## Example: As a Member of Parliament...
 
 
 ### The serious
