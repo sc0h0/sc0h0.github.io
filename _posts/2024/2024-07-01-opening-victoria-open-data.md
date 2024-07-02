@@ -62,6 +62,10 @@ The best way to demonstrate the capabilities of Google Gemini is to DIY and use 
 
 #### Example: As a Member of Parliament...
 
+<figure>
+  <img src="/assets/vicopendata/example2.png" alt="" loading="lazy">
+</figure>
+
 
 ### The serious
 I can easily see this technology being used in large companies that have employees spending a lot of their time tracking down data or using one data source not knowning there is another, more reliable data source.
