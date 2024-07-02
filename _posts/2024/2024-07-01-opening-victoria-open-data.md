@@ -16,10 +16,16 @@ The DataVic platform:
 - Inconsistently provides detailed data profiling
 
 ### The idea
-Having recently watched a <a href="https://www.youtube.com/watch?v=PwFrN3dFiwY">demonstration</a> on effectively using Google Gemini Pro's large context window, I realised that with some web scraping and data preparation, a large text file profiling all available data files on DataVic might enable me to use Gemini for discovering the available data.
+Having recently watched a <a href="https://www.youtube.com/watch?v=PwFrN3dFiwY">demonstration</a> on effectively using Google Gemini Pro's large context window, I realised that with some web scraping and data preparation, a large text file profiling all available data files on DataVic might let use Gemini to discover the available data.
 
 ### The approach
-I wrote a script that downloaded every available CSV from the DataVic platform and based on each CSV created a json file that profiled each CSV. For example,
+I wrote a script that downloaded every available CSV from the DataVic platform and based on each CSV created a json file that profiled each CSV. For each CSV, I profiled it based on:
+- Filename
+- Dataset page and description
+- Filesize and rows
+- Columns and two rows of sample data
+
+For example:
 
 <figure>
   <img src="/assets/vicopendata/sample_json.png" alt="" loading="lazy">
