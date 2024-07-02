@@ -11,7 +11,6 @@ However, every time I've used it, I've struggled to determine what data is avail
 
 ### Defining the problem
 The DataVic platform:
-- Fails to effectively showcase available datasets
 - Provides insufficient discovery tools for exploring data
 - Inconsistently provides detailed data profiling
 
