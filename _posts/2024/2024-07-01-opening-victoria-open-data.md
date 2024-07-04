@@ -62,10 +62,10 @@ The best way to demonstrate the capabilities of Google Gemini is to DIY on the <
   <img src="/assets/vicopendata/eg_datascientist.png" alt="" loading="lazy">
 </figure>
 
-#### Example: Identifying disparate datasets to enhance insights...
+#### Example: As a Victorian Labor MP...
 
 <figure>
-  <img src="/assets/vicopendata/eg_joindata.png" alt="" loading="lazy">
+  <img src="/assets/vicopendata/labor_mp.png" alt="" loading="lazy">
 </figure>
 
 
