@@ -28,6 +28,8 @@ Link to dashboard <a href="https://appappntaswine-b8zvhwxo7znduhwskkcmrh.streaml
 
 The dashboard plots wine prices (per bottle) against the corresponding Cents per Point earned in a scatter plot, making it easier to spot the 'sweet spots.'
 
+The dashboard’s wine database is refreshed automatically every few hours by a scraping script that pulls data from the Qantas Wine store.
+
 Both historical and current bonus point offers are displayed, helping you see whether current promotions are a good deal or if it’s better to wait for something better.
 
 I’ve also highlighted Pareto efficient wines using star markers. A Pareto efficient wine is one where no other wine has both a lower price and a lower cost per point. In other words, it represents the best trade-off. You can’t lower one attribute (like price) without increasing the other (like cost per point). I came across this concept in a great article (<a href="https://www.mayerowitz.io/blog/mario-meets-pareto">link</a>) that uses it to select the best Mario Kart character.
@@ -64,6 +66,8 @@ Nonetheless, I was able to extract the wine information by locating the JSON dat
 </figure>
 
 The code to scrape the Qantas Wine store and prepare the SCD table is here: https://github.com/sc0h0/streamlit_qantaswine/tree/main/scrape_code
+
+This code runs every few hours via a Windows Task Scheduler job on an old laptop, 'Betty,' tucked away behind my TV cabinet. Sure, I could have gone with a fancy virtual Unix machine and used a cron job instead, but this was a cheaper (considering $ per kWh vs virtual server costs) and simpler option.
 
 
 
