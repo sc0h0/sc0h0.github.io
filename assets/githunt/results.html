@@ -1,110 +1,436 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <title>Repo hunting results</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
   <style>
+    :root {
+      --bg: #ffffff;
+      --panel: #fafafa;
+      --panel-2: #f4f4f4;
+      --border: #e5e5e5;
+      --text: #1f1f1f;
+      --muted: #6b6b6b;
+      --link: #0a66c2;
+      --shadow: 0 1px 2px rgba(0,0,0,0.04);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+
     body {
-      font-family: Arial;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    .wrap {
       max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
+      margin: 32px auto 56px;
+      padding: 0 16px;
     }
 
-    table {
+    h1 {
+      margin: 0 0 6px;
+      font-size: 28px;
+    }
+
+    .sub {
+      color: var(--muted);
+      margin: 0 0 22px;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: 1.6fr 180px 180px;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .toolbar input,
+    .toolbar select {
       width: 100%;
-      border-collapse: collapse;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+      font-size: 14px;
     }
 
-    th, td {
-      padding: 10px;
-      border-bottom: 1px solid #ddd;
-      text-align: left;
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
     }
 
-    th {
-      background: #f7f7f7;
+    .stat {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-top {
+      padding: 16px 16px 10px;
+    }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 10px;
+    }
+
+    .identity h2 {
+      margin: 0 0 4px;
+      font-size: 18px;
+    }
+
+    .identity .meta {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .link-btn {
+      display: inline-block;
+      text-decoration: none;
+      color: #fff;
+      background: var(--link);
+      padding: 9px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .score-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0 12px;
+    }
+
+    .pill {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: 13px;
+    }
+
+    .pill strong {
+      font-weight: 700;
+    }
+
+    .summary {
+      font-size: 14px;
+      color: #2f2f2f;
+      margin: 0;
+    }
+
+    .card-bottom {
+      border-top: 1px solid var(--border);
+      background: var(--panel);
+      padding: 12px 16px 16px;
+    }
+
+    .toggle {
+      appearance: none;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      color: var(--link);
+      font-size: 14px;
       cursor: pointer;
+      margin-bottom: 10px;
     }
 
-    tr:hover {
-      background: #fafafa;
-    }
-
-    .detail {
-      background: #fcfcfc;
+    .details {
       display: none;
+      gap: 14px;
     }
 
-    input {
-      margin-bottom: 15px;
-      padding: 8px;
-      width: 300px;
+    .details.open {
+      display: grid;
+    }
+
+    .detail-block {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 13px;
+    }
+
+    .detail-block h3 {
+      margin: 0 0 8px;
+      font-size: 14px;
+    }
+
+    .detail-block p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .detail-block ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .detail-block li {
+      margin: 0 0 6px;
+      font-size: 14px;
+    }
+
+    .empty {
+      padding: 24px;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      color: var(--muted);
+      background: var(--panel);
+    }
+
+    @media (min-width: 860px) {
+      .details.open {
+        grid-template-columns: 1.2fr 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .card-head {
+        flex-direction: column;
+      }
+
+      .link-btn {
+        width: fit-content;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="wrap">
+    <h1>Repo hunting results</h1>
+    <p class="sub">A small interactive sample of structured candidate reviews generated from public GitHub repositories.</p>
 
-<h2>Repo hunting results</h2>
+    <div class="toolbar">
+      <input id="search" type="text" placeholder="Search username, repo, summary, strengths, gaps...">
+      <select id="sortBy">
+        <option value="technical_overall_score">Sort: overall score</option>
+        <option value="python_skill_score">Sort: Python score</option>
+        <option value="sql_skill_score">Sort: SQL score</option>
+        <option value="reviewed_file_count">Sort: file count</option>
+        <option value="username">Sort: username</option>
+      </select>
+      <select id="fitFilter">
+        <option value="">Filter: all</option>
+        <option value="yes">Junior analyst fit: yes</option>
+        <option value="no">Junior analyst fit: no</option>
+      </select>
+    </div>
 
-<input id="search" placeholder="Filter...">
+    <div id="stats" class="stats"></div>
+    <div id="results" class="grid"></div>
+  </div>
 
-<div id="table"></div>
+  <script>
+    const CSV_PATH = 'hiddenprofile.csv';
+    let allRows = [];
 
-<script>
-fetch('hiddenprofile.csv')
-  .then(r => r.text())
-  .then(text => {
-    const rows = text.split('\n').map(r => r.split(','));
-    const headers = rows[0];
-    const data = rows.slice(1).filter(r => r.length > 1);
-
-    let html = '<table><thead><tr>';
-
-    headers.forEach(h => html += `<th>${h}</th>`);
-    html += '</tr></thead><tbody>';
-
-    data.forEach((row, i) => {
-      html += `<tr onclick="toggle(${i})">`;
-
-      row.forEach((cell, j) => {
-        if (headers[j] === 'github_url') {
-          html += `<td><a href="${cell}" target="_blank">link</a></td>`;
-        } else {
-          html += `<td>${cell}</td>`;
-        }
-      });
-
-      html += '</tr>';
-
-      html += `
-        <tr id="detail-${i}" class="detail">
-          <td colspan="${headers.length}">
-            <strong>Summary:</strong> ${row[headers.indexOf('evidence_summary')]}<br><br>
-            <strong>Strengths:</strong> ${row[headers.indexOf('key_strengths')]}<br>
-            <strong>Gaps:</strong> ${row[headers.indexOf('key_gaps')]}<br>
-            <strong>Red flags:</strong> ${row[headers.indexOf('red_flags')]}
-          </td>
-        </tr>
-      `;
-    });
-
-    html += '</tbody></table>';
-    document.getElementById('table').innerHTML = html;
-
-    window.toggle = function(i) {
-      const el = document.getElementById('detail-' + i);
-      el.style.display = el.style.display === 'none' ? 'table-row' : 'none';
+    function num(v) {
+      const n = Number(v);
+      return Number.isFinite(n) ? n : 0;
     }
 
-    document.getElementById('search').addEventListener('input', function(e) {
-      const val = e.target.value.toLowerCase();
-      document.querySelectorAll('tbody tr').forEach(tr => {
-        tr.style.display = tr.innerText.toLowerCase().includes(val) ? '' : 'none';
-      });
-    });
-  });
-</script>
+    function splitPipeList(value) {
+      return String(value || '')
+        .split('|')
+        .map(x => x.trim())
+        .filter(Boolean);
+    }
 
+    function escapeHtml(str) {
+      return String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function renderStats(rows) {
+      const stats = document.getElementById('stats');
+      const count = rows.length;
+      const avgOverall = count ? (rows.reduce((a, r) => a + num(r.technical_overall_score), 0) / count).toFixed(1) : '0.0';
+      const fitYes = rows.filter(r => String(r.fit_for_junior_data_analyst).toLowerCase() === 'yes').length;
+      const avgPython = count ? (rows.reduce((a, r) => a + num(r.python_skill_score), 0) / count).toFixed(1) : '0.0';
+      const avgSql = count ? (rows.reduce((a, r) => a + num(r.sql_skill_score), 0) / count).toFixed(1) : '0.0';
+
+      stats.innerHTML = `
+        <div class="stat">Profiles: <strong>${count}</strong></div>
+        <div class="stat">Avg overall: <strong>${avgOverall}</strong></div>
+        <div class="stat">Avg Python: <strong>${avgPython}</strong></div>
+        <div class="stat">Avg SQL: <strong>${avgSql}</strong></div>
+        <div class="stat">Junior analyst fit = yes: <strong>${fitYes}</strong></div>
+      `;
+    }
+
+    function renderCards(rows) {
+      const results = document.getElementById('results');
+
+      if (!rows.length) {
+        results.innerHTML = `<div class="empty">No matching profiles.</div>`;
+        return;
+      }
+
+      results.innerHTML = rows.map((row, i) => {
+        const strengths = splitPipeList(row.key_strengths);
+        const gaps = splitPipeList(row.key_gaps);
+        const flags = splitPipeList(row.red_flags);
+        const detailId = `detail-${i}`;
+
+        return `
+          <article class="card">
+            <div class="card-top">
+              <div class="card-head">
+                <div class="identity">
+                  <h2>${escapeHtml(row.username)}</h2>
+                  <div class="meta">
+                    Repos: ${escapeHtml(row.reviewed_repo_names || '—')} ·
+                    Files reviewed: ${escapeHtml(row.reviewed_file_count || '0')} ·
+                    Status: ${escapeHtml(row.review_status || '—')}
+                  </div>
+                </div>
+                <a class="link-btn" href="${escapeHtml(row.github_url || '#')}" target="_blank" rel="noopener noreferrer">Open GitHub</a>
+              </div>
+
+              <div class="score-row">
+                <span class="pill"><strong>SQL</strong> ${escapeHtml(row.sql_skill_score || '0')} <span style="color:#777">(${escapeHtml(row.sql_skill_confidence || 'n/a')})</span></span>
+                <span class="pill"><strong>Python</strong> ${escapeHtml(row.python_skill_score || '0')} <span style="color:#777">(${escapeHtml(row.python_skill_confidence || 'n/a')})</span></span>
+                <span class="pill"><strong>Overall</strong> ${escapeHtml(row.technical_overall_score || '0')}</span>
+                <span class="pill"><strong>Segmentation</strong> ${escapeHtml(row.segmentation_score || '0')}</span>
+                <span class="pill"><strong>Interop</strong> ${escapeHtml(row.sql_python_interop_score || '0')}</span>
+                <span class="pill"><strong>Junior analyst fit</strong> ${escapeHtml(row.fit_for_junior_data_analyst || '—')}</span>
+              </div>
+
+              <p class="summary">${escapeHtml(row.evidence_summary || '')}</p>
+            </div>
+
+            <div class="card-bottom">
+              <button class="toggle" type="button" onclick="toggleDetails('${detailId}', this)">Show details</button>
+              <div id="${detailId}" class="details">
+                <section class="detail-block">
+                  <h3>Evidence summary</h3>
+                  <p>${escapeHtml(row.evidence_summary || '—')}</p>
+                </section>
+
+                <section class="detail-block">
+                  <h3>Key strengths</h3>
+                  ${strengths.length ? `<ul>${strengths.map(x => `<li>${escapeHtml(x)}</li>`).join('')}</ul>` : `<p>—</p>`}
+                </section>
+
+                <section class="detail-block">
+                  <h3>Key gaps</h3>
+                  ${gaps.length ? `<ul>${gaps.map(x => `<li>${escapeHtml(x)}</li>`).join('')}</ul>` : `<p>—</p>`}
+                </section>
+
+                <section class="detail-block">
+                  <h3>Red flags</h3>
+                  ${flags.length ? `<ul>${flags.map(x => `<li>${escapeHtml(x)}</li>`).join('')}</ul>` : `<p>—</p>`}
+                </section>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function toggleDetails(id, button) {
+      const el = document.getElementById(id);
+      const isOpen = el.classList.contains('open');
+      el.classList.toggle('open', !isOpen);
+      button.textContent = isOpen ? 'Show details' : 'Hide details';
+    }
+
+    window.toggleDetails = toggleDetails;
+
+    function applyFilters() {
+      const q = document.getElementById('search').value.trim().toLowerCase();
+      const sortBy = document.getElementById('sortBy').value;
+      const fit = document.getElementById('fitFilter').value;
+
+      let rows = [...allRows];
+
+      if (q) {
+        rows = rows.filter(r => {
+          const haystack = [
+            r.username,
+            r.reviewed_repo_names,
+            r.evidence_summary,
+            r.key_strengths,
+            r.key_gaps,
+            r.red_flags,
+            r.fit_for_junior_data_analyst
+          ].join(' ').toLowerCase();
+          return haystack.includes(q);
+        });
+      }
+
+      if (fit) {
+        rows = rows.filter(r => String(r.fit_for_junior_data_analyst).toLowerCase() === fit);
+      }
+
+      rows.sort((a, b) => {
+        if (sortBy === 'username') {
+          return String(a.username).localeCompare(String(b.username));
+        }
+        return num(b[sortBy]) - num(a[sortBy]);
+      });
+
+      renderStats(rows);
+      renderCards(rows);
+    }
+
+    Papa.parse(CSV_PATH, {
+      download: true,
+      header: true,
+      skipEmptyLines: true,
+      complete: function(results) {
+        allRows = results.data;
+        applyFilters();
+      },
+      error: function(err) {
+        document.getElementById('results').innerHTML =
+          `<div class="empty">Could not load CSV: ${escapeHtml(err.message || err)}</div>`;
+      }
+    });
+
+    document.getElementById('search').addEventListener('input', applyFilters);
+    document.getElementById('sortBy').addEventListener('change', applyFilters);
+    document.getElementById('fitFilter').addEventListener('change', applyFilters);
+  </script>
 </body>
 </html>
