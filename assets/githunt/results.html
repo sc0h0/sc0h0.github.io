@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Repo hunting results</title>
+  <style>
+    body {
+      font-family: Arial;
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background: #f7f7f7;
+      cursor: pointer;
+    }
+
+    tr:hover {
+      background: #fafafa;
+    }
+
+    .detail {
+      background: #fcfcfc;
+      display: none;
+    }
+
+    input {
+      margin-bottom: 15px;
+      padding: 8px;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Repo hunting results</h2>
+
+<input id="search" placeholder="Filter...">
+
+<div id="table"></div>
+
+<script>
+fetch('hiddenprofile.csv')
+  .then(r => r.text())
+  .then(text => {
+    const rows = text.split('\n').map(r => r.split(','));
+    const headers = rows[0];
+    const data = rows.slice(1).filter(r => r.length > 1);
+
+    let html = '<table><thead><tr>';
+
+    headers.forEach(h => html += `<th>${h}</th>`);
+    html += '</tr></thead><tbody>';
+
+    data.forEach((row, i) => {
+      html += `<tr onclick="toggle(${i})">`;
+
+      row.forEach((cell, j) => {
+        if (headers[j] === 'github_url') {
+          html += `<td><a href="${cell}" target="_blank">link</a></td>`;
+        } else {
+          html += `<td>${cell}</td>`;
+        }
+      });
+
+      html += '</tr>';
+
+      html += `
+        <tr id="detail-${i}" class="detail">
+          <td colspan="${headers.length}">
+            <strong>Summary:</strong> ${row[headers.indexOf('evidence_summary')]}<br><br>
+            <strong>Strengths:</strong> ${row[headers.indexOf('key_strengths')]}<br>
+            <strong>Gaps:</strong> ${row[headers.indexOf('key_gaps')]}<br>
+            <strong>Red flags:</strong> ${row[headers.indexOf('red_flags')]}
+          </td>
+        </tr>
+      `;
+    });
+
+    html += '</tbody></table>';
+    document.getElementById('table').innerHTML = html;
+
+    window.toggle = function(i) {
+      const el = document.getElementById('detail-' + i);
+      el.style.display = el.style.display === 'none' ? 'table-row' : 'none';
+    }
+
+    document.getElementById('search').addEventListener('input', function(e) {
+      const val = e.target.value.toLowerCase();
+      document.querySelectorAll('tbody tr').forEach(tr => {
+        tr.style.display = tr.innerText.toLowerCase().includes(val) ? '' : 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
