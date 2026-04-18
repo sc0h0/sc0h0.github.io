@@ -1,44 +1,25 @@
-import base64
 import csv
 import json
 import os
 import time
-from datetime import datetime
-from typing import Dict, List, Optional, Tuple, Set
+from datetime import datetime, timezone, timedelta
+from typing import Dict, Iterable, List, Optional, Set, Tuple
 
 import requests
-from openai import OpenAI
 
 # ============================================================
 # CONFIG
 # ============================================================
 
 GITHUB_TOKEN = ""
+OUTPUT_USERS_FILE = "melbourne_users.csv"
+RESULTS_FILE = "melbourne_candidates.csv"
+RUN_STATE_FILE = "simple_01_state.json"
 
-CANDIDATES_FILE = "melbourne_candidates.csv"
-REVIEW_FILE = "candidate_code_reviews.csv"
-STATE_FILE = "simple_02_state.json"
-
-MODEL = "gpt-5.4"
-
-
-
-MAX_REPOS_PER_CANDIDATE = 4
-
-# New per-language limits
-MAX_RECENT_SQL_FILES_PER_REPO = 10
-MAX_RECENT_PY_FILES_PER_REPO = 10
-
-MAX_FILE_BYTES = 80_000
-MAX_TOTAL_CHARS_PER_CANDIDATE = 120_000
-MAX_CHARS_PER_FILE = 4000
-HTTP_SLEEP_SECONDS = 0.6
-COMMITS_TO_SCAN_PER_REPO = 40
-
-client = OpenAI(
-    base_url="http://127.0.0.1:8000/v1",
-    api_key="key",  # ignored by ChatMock
-)
+SIX_MONTHS_AGO = datetime.now(timezone.utc) - timedelta(days=180)
+SEARCH_SLEEP_SECONDS = 1.0
+PROFILE_SLEEP_SECONDS = 0.25
+MAX_SEARCH_PAGES_PER_QUERY = 10
 
 HEADERS = {
     "Authorization": f"Bearer {GITHUB_TOKEN}",
@@ -46,43 +27,106 @@ HEADERS = {
     "X-GitHub-Api-Version": "2022-11-28",
 }
 
-INCLUDE_EXTENSIONS = {".sql", ".py"}
+SEARCH_QUERIES = [
+    'location:"Melbourne" created:>2023-01-01',
+    'location:"Melbourne Australia" created:>2023-01-01',
+    'location:"Melbourne VIC" created:>2023-01-01',
+    'location:"Melbourne Victoria" created:>2023-01-01',
+    'location:"Geelong" created:>2023-01-01',
+    'location:"Ballarat" created:>2023-01-01',
+    'location:"Bendigo" created:>2023-01-01',
+    'location:"Warrnambool" created:>2023-01-01',
+    'location:"Shepparton" created:>2023-01-01',
+]
 
-SKIP_DIR_HINTS = (
-    "node_modules/", ".venv/", "venv/", "__pycache__/", ".git/", "dist/", "build/",
-    ".mypy_cache/", ".pytest_cache/", "site-packages/", "vendor/",
-)
+MELBOURNE_BIO_HINTS = [
+    "melbourne",
+    "melbourne-based",
+    "melbs",
+    "melburnian",
+    "melbournian",
+]
 
-SKIP_SUFFIXES = (
-    ".png", ".jpg", ".jpeg", ".gif", ".webp",
-    ".zip", ".parquet", ".csv", ".xls", ".xlsx", ".pdf"
-)
+VICTORIAN_UNI_TERMS = [
+    "university of melbourne",
+    "unimelb",
+    "monash university",
+    "monash",
+    "rmit university",
+    "rmit",
+    "deakin university",
+    "deakin",
+    "la trobe university",
+    "la trobe",
+    "latrobe",
+    "swinburne university",
+    "swinburne",
+    "victoria university",
+    "vu melbourne",
+    "federation university",
+    "feduni",
+    "melbourne business school",
+]
+
+GRAD_BIO_SIGNALS = [
+    "student", "undergraduate", "postgraduate", "graduate", "grad student",
+    "bachelor", "master", "phd", "studying", "final year", "first year",
+    "second year", "third year", "fourth year", "recent grad", "new grad",
+    "class of 2021", "class of 2022", "class of 2023", "class of 2024", "class of 2025", "class of 2026",
+    "2021 grad", "2022 grad", "2023 grad", "2024 grad", "2025 grad", "2026 grad",
+    "junior developer", "junior dev", "junior analyst", "entry level",
+]
+
+DATA_SKILL_SIGNALS = [
+    "python", "sql", "tableau", "power bi", "powerbi", "excel",
+    "pandas", "numpy", "matplotlib", "jupyter", "data analysis",
+    "data analytics", "data science", "machine learning", "statistics",
+    "business intelligence", "etl", "dbt", "spark", "bigquery",
+]
+
+NON_AUSTRALIA_SIGNALS = [
+    "florida", " fl,", " fl ", ",fl", ", fl", " fl", "fl ",
+    "united states", "usa", " us,", " us ", ", us",
+    "canada", "united kingdom", " uk,", " uk ", "england", "scotland",
+    "new zealand", "india", "germany", "france", "brazil", "singapore",
+    "malaysia", "philippines", "nigeria", "ghana", "kenya", "pakistan",
+    "bangladesh", "indonesia", "vietnam", "china", "japan", "korea",
+    "california", "new york", "texas", "ontario", "british columbia",
+    "london", "toronto", "vancouver", "auckland", "bangalore", "mumbai",
+]
+
+AUSTRALIA_SIGNALS = [
+    "australia", "vic", "victoria", "nsw", "qld", "sa", "wa", "act", "nt",
+    "melb", "aus,", "au,", ".au",
+]
 
 FIELDNAMES = [
     "username",
     "github_url",
-    "review_status",
-    "reviewed_repo_names",
-    "reviewed_file_count",
-    "sql_skill_score",
-    "sql_skill_confidence",
-    "python_skill_score",
-    "python_skill_confidence",
-    "commenting_quality_score",
-    "sql_structuring_score",
-    "sql_python_interop_score",
-    "segmentation_score",
-    "collections_domain_score",
-    "collections_domain_confidence",
-    "technical_overall_score",
-    "fit_for_junior_data_analyst",
-    "fit_for_collections_analytics",
-    "evidence_summary",
-    "key_strengths",
-    "key_gaps",
-    "red_flags",
+    "status",
+    "name",
+    "location",
+    "bio",
+    "company",
+    "created_at",
+    "public_repos",
+    "followers",
+    "personal_repo_count",
+    "recent_active_repo_count",
+    "recent_active_repo_names",
+    "active_languages",
+    "uni_signals",
+    "grad_signals",
+    "data_skill_signals",
+    "candidate_path",
+    "summary_reason",
     "scanned_at",
 ]
+
+
+def save_json(path: str, data: Dict) -> None:
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, sort_keys=True)
 
 
 def load_json(path: str, default: Dict) -> Dict:
@@ -92,36 +136,76 @@ def load_json(path: str, default: Dict) -> Dict:
         return json.load(f)
 
 
-def save_json(path: str, data: Dict) -> None:
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, sort_keys=True)
-
-
 def gh_get(url: str, params: Optional[Dict] = None) -> requests.Response:
     while True:
         resp = requests.get(url, headers=HEADERS, params=params, timeout=60)
-
         if resp.status_code == 403:
             reset_time = int(resp.headers.get("X-RateLimit-Reset", time.time() + 60))
             wait = max(reset_time - int(time.time()), 5) + 5
-            print(f"  github rate limit hit, waiting {wait}s")
+            print(f"  rate limit hit, waiting {wait}s")
             time.sleep(wait)
             continue
-
         return resp
 
 
-def ensure_review_file() -> None:
-    if not os.path.exists(REVIEW_FILE) or os.path.getsize(REVIEW_FILE) == 0:
-        with open(REVIEW_FILE, "w", newline="", encoding="utf-8") as f:
+def safe_lower(x: Optional[str]) -> str:
+    return (x or "").lower().strip()
+
+
+def ensure_users_file() -> None:
+    if not os.path.exists(OUTPUT_USERS_FILE) or os.path.getsize(OUTPUT_USERS_FILE) == 0:
+        with open(OUTPUT_USERS_FILE, "w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=["username", "github_url", "status", "source_query"])
+            writer.writeheader()
+
+
+def ensure_results_file() -> None:
+    if not os.path.exists(RESULTS_FILE) or os.path.getsize(RESULTS_FILE) == 0:
+        with open(RESULTS_FILE, "w", newline="", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
             writer.writeheader()
 
 
-def read_reviewed_usernames() -> Set[str]:
-    ensure_review_file()
+def read_existing_users() -> Dict[str, Dict[str, str]]:
+    ensure_users_file()
+    users: Dict[str, Dict[str, str]] = {}
+    with open(OUTPUT_USERS_FILE, "r", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            username = row.get("username", "").strip()
+            if username:
+                users[username] = row
+    return users
+
+
+def append_users(new_rows: List[Dict[str, str]]) -> None:
+    if not new_rows:
+        return
+    ensure_users_file()
+    with open(OUTPUT_USERS_FILE, "a", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=["username", "github_url", "status", "source_query"])
+        for row in new_rows:
+            writer.writerow(row)
+
+
+def update_user_status(username: str, new_status: str) -> None:
+    ensure_users_file()
+    rows: List[Dict[str, str]] = []
+    with open(OUTPUT_USERS_FILE, "r", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+    with open(OUTPUT_USERS_FILE, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=["username", "github_url", "status", "source_query"])
+        writer.writeheader()
+        for row in rows:
+            if row.get("username") == username:
+                row["status"] = new_status
+            writer.writerow(row)
+
+
+def read_results_usernames() -> Set[str]:
+    ensure_results_file()
     out: Set[str] = set()
-    with open(REVIEW_FILE, "r", encoding="utf-8") as f:
+    with open(RESULTS_FILE, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
             username = row.get("username", "").strip()
@@ -130,18 +214,71 @@ def read_reviewed_usernames() -> Set[str]:
     return out
 
 
-def append_review(row: Dict[str, str]) -> None:
-    ensure_review_file()
-    with open(REVIEW_FILE, "a", newline="", encoding="utf-8") as f:
+def append_result(row: Dict[str, str]) -> None:
+    ensure_results_file()
+    with open(RESULTS_FILE, "a", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
         writer.writerow(row)
 
 
-def read_candidates() -> List[Dict[str, str]]:
-    if not os.path.exists(CANDIDATES_FILE):
-        raise RuntimeError(f"Missing {CANDIDATES_FILE}. Run simple_01.py first.")
-    with open(CANDIDATES_FILE, "r", encoding="utf-8") as f:
-        return list(csv.DictReader(f))
+def search_users_by_queries() -> None:
+    state = load_json(RUN_STATE_FILE, {"phase": "search", "query_index": 0, "page": 1})
+    existing = read_existing_users()
+
+    if state.get("phase") != "search":
+        print("Search phase already completed earlier.")
+        return
+
+    for q_index in range(state["query_index"], len(SEARCH_QUERIES)):
+        query = SEARCH_QUERIES[q_index]
+        page_start = state["page"] if q_index == state["query_index"] else 1
+        print(f"[search] query {q_index + 1}/{len(SEARCH_QUERIES)}: {query}")
+
+        for page in range(page_start, MAX_SEARCH_PAGES_PER_QUERY + 1):
+            resp = gh_get(
+                "https://api.github.com/search/users",
+                params={"q": query, "per_page": 100, "page": page},
+            )
+            if resp.status_code != 200:
+                print(f"  search error {resp.status_code} on page {page}")
+                save_json(RUN_STATE_FILE, {"phase": "search", "query_index": q_index, "page": page})
+                return
+
+            items = resp.json().get("items", [])
+            if not items:
+                break
+
+            rows_to_add: List[Dict[str, str]] = []
+            for item in items:
+                username = item.get("login", "").strip()
+                if not username or username in existing:
+                    continue
+                row = {
+                    "username": username,
+                    "github_url": f"https://github.com/{username}",
+                    "status": "pending",
+                    "source_query": query,
+                }
+                existing[username] = row
+                rows_to_add.append(row)
+
+            append_users(rows_to_add)
+            print(f"  page {page}: {len(items)} raw users, {len(rows_to_add)} new appended to {OUTPUT_USERS_FILE}")
+
+            save_json(RUN_STATE_FILE, {"phase": "search", "query_index": q_index, "page": page + 1})
+            time.sleep(SEARCH_SLEEP_SECONDS)
+
+        save_json(RUN_STATE_FILE, {"phase": "search", "query_index": q_index + 1, "page": 1})
+
+    save_json(RUN_STATE_FILE, {"phase": "scan", "last_username": ""})
+    print(f"Search phase finished. Review {OUTPUT_USERS_FILE} if you want before scanning.")
+
+
+def get_user_profile(username: str) -> Optional[Dict]:
+    resp = gh_get(f"https://api.github.com/users/{username}")
+    if resp.status_code == 200:
+        return resp.json()
+    return None
 
 
 def get_repos(username: str) -> List[Dict]:
@@ -154,436 +291,187 @@ def get_repos(username: str) -> List[Dict]:
     return []
 
 
-def choose_relevant_repos(repos: List[Dict]) -> List[Dict]:
-    personal_repos = [r for r in repos if not r.get("fork")]
-    scored: List[Tuple[int, Dict]] = []
-
-    for repo in personal_repos:
-        score = 0
-        text = f"{repo.get('name', '')} {repo.get('description', '') or ''}".lower()
-        language = (repo.get("language") or "").lower()
-
-        if language in {"python"}:
-            score += 4
-        if any(word in text for word in [
-            "sql", "analysis", "analytics", "dashboard", "segmentation",
-            "collections", "debt", "etl", "dbt", "notebook", "python"
-        ]):
-            score += 4
-        if repo.get("stargazers_count", 0) > 0:
-            score += 1
-        if repo.get("pushed_at"):
-            score += 2
-
-        scored.append((score, repo))
-
-    scored.sort(key=lambda x: (x[0], x[1].get("pushed_at") or ""), reverse=True)
-    return [repo for _, repo in scored[:MAX_REPOS_PER_CANDIDATE]]
+def detect_signals(text: str, terms: Iterable[str]) -> List[str]:
+    lower_text = safe_lower(text)
+    return [term for term in terms if term in lower_text]
 
 
-def get_repo_default_branch(owner: str, repo: str) -> Optional[str]:
-    resp = gh_get(f"https://api.github.com/repos/{owner}/{repo}")
-    if resp.status_code == 200:
-        return resp.json().get("default_branch")
-    return None
+def is_likely_melbourne_or_victoria(location: str, bio: str, company: str) -> Tuple[bool, str]:
+    loc = safe_lower(location)
+    combined = f"{safe_lower(bio)} {safe_lower(company)}"
+
+    for signal in NON_AUSTRALIA_SIGNALS:
+        if signal in loc:
+            return False, f"non-AU signal in location: {signal}"
+
+    if "melbourne" in loc or "melbs" in loc or "victoria" in loc or " vic" in loc or loc == "vic":
+        return True, "Melbourne/Victoria signal in location"
+
+    for signal in AUSTRALIA_SIGNALS:
+        if signal in loc:
+            return True, f"Australia signal in location: {signal}"
+
+    if any(hint in combined for hint in MELBOURNE_BIO_HINTS):
+        return True, "Melbourne hint in bio/company"
+
+    uni_hits = detect_signals(combined, VICTORIAN_UNI_TERMS)
+    if uni_hits:
+        return True, "Victorian uni signal in bio/company"
+
+    return False, "no convincing Melbourne/Victoria signal"
 
 
-def is_relevant_code_path(path: str) -> bool:
-    lowered = path.lower()
-
-    if any(hint in lowered for hint in SKIP_DIR_HINTS):
-        return False
-    if lowered.endswith(SKIP_SUFFIXES):
-        return False
-
-    return any(lowered.endswith(ext) for ext in INCLUDE_EXTENSIONS)
-
-
-def clean_text_for_llm(text: str) -> str:
-    cleaned = []
-    for ch in text:
-        o = ord(ch)
-        if ch in "\n\r\t" or 32 <= o <= 126 or o >= 160:
-            cleaned.append(ch)
-    return "".join(cleaned)
-
-
-def get_recent_sql_and_py_files_from_commits(owner: str, repo: str, branch: str) -> List[str]:
-    resp = gh_get(
-        f"https://api.github.com/repos/{owner}/{repo}/commits",
-        params={"sha": branch, "per_page": COMMITS_TO_SCAN_PER_REPO},
-    )
-    if resp.status_code != 200:
-        return []
-
-    commits = resp.json()
-
-    sql_paths: List[str] = []
-    py_paths: List[str] = []
-    sql_seen: Set[str] = set()
-    py_seen: Set[str] = set()
-
-    for commit in commits:
-        sha = commit.get("sha")
-        if not sha:
+def check_recent_personal_activity(repos: List[Dict]) -> Tuple[bool, List[Dict]]:
+    active_repos: List[Dict] = []
+    for repo in repos:
+        if repo.get("fork"):
             continue
-
-        detail = gh_get(f"https://api.github.com/repos/{owner}/{repo}/commits/{sha}")
-        if detail.status_code != 200:
-            time.sleep(HTTP_SLEEP_SECONDS)
+        pushed_at = repo.get("pushed_at")
+        if not pushed_at:
             continue
-
-        files = detail.json().get("files", [])
-
-        for f in files:
-            path = f.get("filename", "")
-            lowered = path.lower()
-            status = (f.get("status") or "").lower()
-
-            if status not in {"added", "modified"}:
-                continue
-            if not is_relevant_code_path(path):
-                continue
-
-            if lowered.endswith(".sql"):
-                if path not in sql_seen and len(sql_paths) < MAX_RECENT_SQL_FILES_PER_REPO:
-                    sql_paths.append(path)
-                    sql_seen.add(path)
-
-            elif lowered.endswith(".py"):
-                if path not in py_seen and len(py_paths) < MAX_RECENT_PY_FILES_PER_REPO:
-                    py_paths.append(path)
-                    py_seen.add(path)
-
-            if (
-                len(sql_paths) >= MAX_RECENT_SQL_FILES_PER_REPO
-                and len(py_paths) >= MAX_RECENT_PY_FILES_PER_REPO
-            ):
-                return sql_paths + py_paths
-
-        time.sleep(HTTP_SLEEP_SECONDS)
-
-    return sql_paths + py_paths
-
-
-def get_contents(owner: str, repo: str, path: str) -> Optional[str]:
-    resp = gh_get(f"https://api.github.com/repos/{owner}/{repo}/contents/{path}")
-    if resp.status_code != 200:
-        return None
-
-    payload = resp.json()
-    if payload.get("encoding") == "base64":
-        raw = base64.b64decode(payload.get("content", ""))
-        if len(raw) > MAX_FILE_BYTES:
-            return None
-        try:
-            return raw.decode("utf-8", errors="ignore")
-        except Exception:
-            return None
-
-    return None
-
-
-def build_candidate_packet(username: str) -> Tuple[Dict, str]:
-    repos = get_repos(username)
-    chosen_repos = choose_relevant_repos(repos)
-
-    packet = {
-        "username": username,
-        "repos": [],
-    }
-    total_chars = 0
-    reviewed_file_count = 0
-
-    for repo in chosen_repos:
-        owner = repo.get("owner", {}).get("login", username)
-        repo_name = repo.get("name", "")
-        branch = get_repo_default_branch(owner, repo_name)
-        if not branch:
-            continue
-
-        recent_paths = get_recent_sql_and_py_files_from_commits(owner, repo_name, branch)
-
-        repo_entry = {
-            "repo_name": repo_name,
-            "description": repo.get("description", "") or "",
-            "language": repo.get("language", "") or "",
-            "pushed_at": repo.get("pushed_at", "") or "",
-            "files": [],
-        }
-
-        sql_count = 0
-        py_count = 0
-
-        for path in recent_paths:
-            content = get_contents(owner, repo_name, path)
-            if not content:
-                continue
-
-            content = clean_text_for_llm(content)
-
-            if not content.strip():
-                continue
-
-            content = content[:MAX_CHARS_PER_FILE]
-            projected = total_chars + len(content)
-            if projected > MAX_TOTAL_CHARS_PER_CANDIDATE:
-                break
-
-            repo_entry["files"].append({
-                "path": path,
-                "content": content,
+        pushed_dt = datetime.fromisoformat(pushed_at.replace("Z", "+00:00"))
+        if pushed_dt >= SIX_MONTHS_AGO:
+            active_repos.append({
+                "name": repo.get("name", ""),
+                "description": repo.get("description", "") or "",
+                "pushed_at": pushed_at,
+                "language": repo.get("language", "") or "",
+                "stars": repo.get("stargazers_count", 0),
             })
-            reviewed_file_count += 1
-            total_chars += len(content)
-
-            lowered = path.lower()
-            if lowered.endswith(".sql"):
-                sql_count += 1
-            elif lowered.endswith(".py"):
-                py_count += 1
-
-            time.sleep(HTTP_SLEEP_SECONDS)
-
-        if repo_entry["files"]:
-            print(f" repo={repo_name} sql_files={sql_count} py_files={py_count}", end=" ", flush=True)
-            packet["repos"].append(repo_entry)
-
-        if total_chars >= MAX_TOTAL_CHARS_PER_CANDIDATE:
-            break
-
-    packet_text = json.dumps(packet, ensure_ascii=False)
-
-    return {
-        "reviewed_repo_names": " | ".join([r["repo_name"] for r in packet["repos"]]),
-        "reviewed_file_count": reviewed_file_count,
-    }, packet_text
+    return len(active_repos) > 0, active_repos
 
 
-def extract_first_json_object(text: str) -> Dict:
-    text = (text or "").strip()
-    start = text.find("{")
-    if start == -1:
-        raise ValueError("No JSON object start found in model output.")
+def classify_candidate_path(profile: Dict, repos: List[Dict], active_repos: List[Dict]) -> Tuple[bool, str]:
+    bio = profile.get("bio") or ""
+    company = profile.get("company") or ""
+    location = profile.get("location") or ""
+    repo_text = " ".join(
+        f"{r.get('name', '')} {r.get('description', '') or ''} {r.get('language', '') or ''}"
+        for r in repos if not r.get("fork")
+    )
 
-    depth = 0
-    in_str = False
-    esc = False
-    end = None
+    location_ok, reason = is_likely_melbourne_or_victoria(location, bio, company)
+    uni_hits = detect_signals(f"{bio} {company}", VICTORIAN_UNI_TERMS)
+    grad_hits = detect_signals(f"{bio} {company}", GRAD_BIO_SIGNALS)
+    data_hits = detect_signals(f"{bio} {company} {repo_text}", DATA_SKILL_SIGNALS)
 
-    for i in range(start, len(text)):
-        c = text[i]
-        if in_str:
-            if esc:
-                esc = False
-            elif c == "\\":
-                esc = True
-            elif c == '"':
-                in_str = False
-        else:
-            if c == '"':
-                in_str = True
-            elif c == "{":
-                depth += 1
-            elif c == "}":
-                depth -= 1
-                if depth == 0:
-                    end = i + 1
-                    break
+    if location_ok and (grad_hits or uni_hits):
+        return True, f"local + uni/grad signals ({reason})"
+    if location_ok and data_hits and active_repos:
+        return True, f"local + data/project signals ({reason})"
+    if uni_hits and active_repos:
+        return True, "Victorian uni signal + recent personal activity"
+    if grad_hits and active_repos and data_hits:
+        return True, "grad signal + recent personal activity + data skills"
+    if location_ok and active_repos:
+        return True, f"local + recent personal activity ({reason})"
 
-    if end is None:
-        raise ValueError("No complete JSON object found in model output.")
-
-    return json.loads(text[start:end])
+    return False, "did not meet simple stage-1 inclusion logic"
 
 
-def score_candidate_with_chatgpt(username: str, packet_text: str) -> Optional[Dict]:
-    prompt = f"""You are reviewing public GitHub code for evidence of junior-to-early-career analytics skill.
+def scan_pending_users() -> None:
+    state = load_json(RUN_STATE_FILE, {"phase": "search", "query_index": 0, "page": 1})
+    if state.get("phase") == "search":
+        print("Search phase has not been completed yet.")
+        return
 
-Candidate username: {username}
+    ensure_users_file()
+    ensure_results_file()
 
-Assess the candidate on:
-1. SQL skill
-2. Python skill
-3. Commenting/documentation quality
-4. SQL decomposition and readability
-5. SQL-Python interoperability
-6. Segmentation / analytical thinking
-7. Collections / debt-recovery domain evidence
+    result_usernames = read_results_usernames()
 
-Important rules:
-- Use only the supplied repo/file evidence.
-- Do not infer collections expertise unless there is explicit evidence.
-- Prefer conservative scoring when evidence is weak.
-- Mention concrete repo/file/path-based evidence when possible.
-- Return STRICT JSON ONLY.
+    with open(OUTPUT_USERS_FILE, "r", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
 
-Return JSON with EXACT keys:
-{{
-  "review_status": "reviewed",
-  "sql_skill_score": 0,
-  "sql_skill_confidence": "low",
-  "python_skill_score": 0,
-  "python_skill_confidence": "low",
-  "commenting_quality_score": 0,
-  "sql_structuring_score": 0,
-  "sql_python_interop_score": 0,
-  "segmentation_score": 0,
-  "collections_domain_score": 0,
-  "collections_domain_confidence": "low",
-  "technical_overall_score": 0,
-  "fit_for_junior_data_analyst": "no",
-  "fit_for_collections_analytics": "no",
-  "evidence_summary": "",
-  "key_strengths": [],
-  "key_gaps": [],
-  "red_flags": []
-}}
+    pending_rows = [row for row in rows if row.get("status") == "pending"]
+    print(f"Scanning {len(pending_rows)} pending users...")
 
-Scoring guidance:
-- Use 0 only when there is effectively no evidence.
-- Use conservative scoring for sparse or mixed evidence.
-- Keep evidence_summary concise but specific.
-- key_strengths, key_gaps, red_flags should each be short lists of strings.
+    for idx, row in enumerate(pending_rows, start=1):
+        username = row["username"]
+        if username in result_usernames:
+            update_user_status(username, "done")
+            continue
 
-Repository packet:
-{packet_text}
-""".strip()
+        print(f"[{idx}/{len(pending_rows)}] {username}...", end=" ", flush=True)
 
-    for attempt in range(5):
         try:
-            resp = client.chat.completions.create(
-                model=MODEL,
-                messages=[{"role": "user", "content": prompt}],
-                stream=False,
+            profile = get_user_profile(username)
+            if not profile:
+                print("no profile")
+                update_user_status(username, "done")
+                save_json(RUN_STATE_FILE, {"phase": "scan", "last_username": username})
+                continue
+
+            repos = get_repos(username)
+            personal_repos = [r for r in repos if not r.get("fork")]
+            is_active, active_repos = check_recent_personal_activity(repos)
+
+            include, summary_reason = classify_candidate_path(profile, repos, active_repos)
+            if not include:
+                print(f"skip: {summary_reason}")
+                update_user_status(username, "done")
+                save_json(RUN_STATE_FILE, {"phase": "scan", "last_username": username})
+                time.sleep(PROFILE_SLEEP_SECONDS)
+                continue
+
+            bio = profile.get("bio") or ""
+            company = profile.get("company") or ""
+            location = profile.get("location") or ""
+            repo_text = " ".join(
+                f"{r.get('name', '')} {r.get('description', '') or ''} {r.get('language', '') or ''}"
+                for r in personal_repos
             )
-            raw = (resp.choices[0].message.content or "").strip()
-            return extract_first_json_object(raw)
+
+            uni_hits = detect_signals(f"{bio} {company}", VICTORIAN_UNI_TERMS)
+            grad_hits = detect_signals(f"{bio} {company}", GRAD_BIO_SIGNALS)
+            data_hits = detect_signals(f"{bio} {company} {repo_text}", DATA_SKILL_SIGNALS)
+
+            row_out = {
+                "username": username,
+                "github_url": f"https://github.com/{username}",
+                "status": "candidate",
+                "name": profile.get("name", "") or "",
+                "location": location,
+                "bio": bio,
+                "company": company,
+                "created_at": profile.get("created_at", "") or "",
+                "public_repos": profile.get("public_repos", "") or "",
+                "followers": profile.get("followers", "") or "",
+                "personal_repo_count": len(personal_repos),
+                "recent_active_repo_count": len(active_repos) if is_active else 0,
+                "recent_active_repo_names": " | ".join(r["name"] for r in active_repos),
+                "active_languages": " | ".join(sorted({r["language"] for r in active_repos if r["language"]})),
+                "uni_signals": " | ".join(uni_hits),
+                "grad_signals": " | ".join(grad_hits),
+                "data_skill_signals": " | ".join(data_hits),
+                "candidate_path": row.get("source_query", ""),
+                "summary_reason": summary_reason,
+                "scanned_at": datetime.now().isoformat(),
+            }
+            append_result(row_out)
+            update_user_status(username, "done")
+            result_usernames.add(username)
+            print(f"saved: {summary_reason}")
 
         except Exception as e:
-            msg = str(e)
+            print(f"error: {e} (will retry next run)")
+            # Leave as pending so rerun resumes.
 
-            if "429" in msg:
-                wait = 2 ** attempt
-                print(f"  chatgpt rate limited for {username}, retrying in {wait}s")
-                time.sleep(wait)
-                continue
+        save_json(RUN_STATE_FILE, {"phase": "scan", "last_username": username})
+        time.sleep(PROFILE_SLEEP_SECONDS)
 
-            debug_path = f"debug_error_{username}.txt"
-            with open(debug_path, "w", encoding="utf-8") as f:
-                f.write(f"ERROR:\n{msg}\n\n")
-                f.write(f"PROMPT_CHARS={len(prompt)}\n")
-                f.write(f"PACKET_CHARS={len(packet_text)}\n")
-            print(f"  chatgpt error for {username}: {e}")
-            print(f"  debug saved to {debug_path}")
-            return None
-
-    return None
+    print(f"Stage 1 complete. Candidates are in {RESULTS_FILE}")
 
 
 def main() -> None:
     if not GITHUB_TOKEN or GITHUB_TOKEN == "PUT_GITHUB_TOKEN_HERE":
         raise RuntimeError("Put a valid GitHub token into GITHUB_TOKEN before running.")
 
-    ensure_review_file()
-    reviewed = read_reviewed_usernames()
-    state = load_json(STATE_FILE, {"last_username": ""})
+    ensure_users_file()
+    ensure_results_file()
 
-    candidates = read_candidates()
-    print(f"Loaded {len(candidates)} stage-1 candidates from {CANDIDATES_FILE}")
-
-    processed = 0
-    for idx, row in enumerate(candidates, start=1):
-        username = row.get("username", "").strip()
-        if not username or username in reviewed:
-            continue
-
-        print(f"[{idx}/{len(candidates)}] reviewing {username}...", end=" ", flush=True)
-
-        try:
-            repo_meta, packet_text = build_candidate_packet(username)
-            print(
-                f"packet_chars={len(packet_text)} "
-                f"files={repo_meta['reviewed_file_count']}",
-                end=" ",
-                flush=True,
-            )
-
-            if repo_meta["reviewed_file_count"] == 0:
-                review_row = {
-                    "username": username,
-                    "github_url": row.get("github_url", ""),
-                    "review_status": "no_relevant_code_found",
-                    "reviewed_repo_names": "",
-                    "reviewed_file_count": 0,
-                    "sql_skill_score": "",
-                    "sql_skill_confidence": "",
-                    "python_skill_score": "",
-                    "python_skill_confidence": "",
-                    "commenting_quality_score": "",
-                    "sql_structuring_score": "",
-                    "sql_python_interop_score": "",
-                    "segmentation_score": "",
-                    "collections_domain_score": "",
-                    "collections_domain_confidence": "",
-                    "technical_overall_score": "",
-                    "fit_for_junior_data_analyst": "",
-                    "fit_for_collections_analytics": "",
-                    "evidence_summary": "No relevant recent .sql/.py files found within configured limits.",
-                    "key_strengths": "",
-                    "key_gaps": "",
-                    "red_flags": "",
-                    "scanned_at": datetime.now().isoformat(),
-                }
-                append_review(review_row)
-                reviewed.add(username)
-                save_json(STATE_FILE, {"last_username": username})
-                print("no relevant code")
-                continue
-
-            review = score_candidate_with_chatgpt(username, packet_text)
-            if not review:
-                print("error from ChatGPT workaround, will retry next run")
-                continue
-
-            review_row = {
-                "username": username,
-                "github_url": row.get("github_url", ""),
-                "review_status": review.get("review_status", "reviewed"),
-                "reviewed_repo_names": repo_meta["reviewed_repo_names"],
-                "reviewed_file_count": repo_meta["reviewed_file_count"],
-                "sql_skill_score": review.get("sql_skill_score", ""),
-                "sql_skill_confidence": review.get("sql_skill_confidence", ""),
-                "python_skill_score": review.get("python_skill_score", ""),
-                "python_skill_confidence": review.get("python_skill_confidence", ""),
-                "commenting_quality_score": review.get("commenting_quality_score", ""),
-                "sql_structuring_score": review.get("sql_structuring_score", ""),
-                "sql_python_interop_score": review.get("sql_python_interop_score", ""),
-                "segmentation_score": review.get("segmentation_score", ""),
-                "collections_domain_score": review.get("collections_domain_score", ""),
-                "collections_domain_confidence": review.get("collections_domain_confidence", ""),
-                "technical_overall_score": review.get("technical_overall_score", ""),
-                "fit_for_junior_data_analyst": review.get("fit_for_junior_data_analyst", ""),
-                "fit_for_collections_analytics": review.get("fit_for_collections_analytics", ""),
-                "evidence_summary": review.get("evidence_summary", ""),
-                "key_strengths": " | ".join(review.get("key_strengths", [])),
-                "key_gaps": " | ".join(review.get("key_gaps", [])),
-                "red_flags": " | ".join(review.get("red_flags", [])),
-                "scanned_at": datetime.now().isoformat(),
-            }
-
-            append_review(review_row)
-            reviewed.add(username)
-            processed += 1
-            save_json(STATE_FILE, {"last_username": username})
-            print(f"reviewed: overall={review.get('technical_overall_score', '')}")
-
-        except Exception as e:
-            print(f"error: {e} (will retry next run)")
-
-        time.sleep(HTTP_SLEEP_SECONDS)
-
-    print(f"Done. Reviewed {processed} candidates. Output: {REVIEW_FILE}")
+    search_users_by_queries()
+    scan_pending_users()
 
 
 if __name__ == "__main__":
