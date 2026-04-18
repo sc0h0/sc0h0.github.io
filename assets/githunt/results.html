@@ -113,14 +113,14 @@
       font-size: 13px;
     }
 
-    .link-btn {
+    .status-badge {
       display: inline-block;
-      text-decoration: none;
-      color: #fff;
-      background: var(--link);
-      padding: 9px 12px;
-      border-radius: 10px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 12px;
       font-size: 13px;
+      color: var(--muted);
       white-space: nowrap;
     }
 
@@ -225,7 +225,7 @@
         flex-direction: column;
       }
 
-      .link-btn {
+      .status-badge {
         width: fit-content;
       }
     }
@@ -321,10 +321,10 @@
                   <div class="meta">
                     Repos: ${escapeHtml(row.reviewed_repo_names || '—')} ·
                     Files reviewed: ${escapeHtml(row.reviewed_file_count || '0')} ·
-                    Status: ${escapeHtml(row.review_status || '—')}
+                    Scanned: ${escapeHtml(row.scanned_at || '—')}
                   </div>
                 </div>
-                <a class="link-btn" href="${escapeHtml(row.github_url || '#')}" target="_blank" rel="noopener noreferrer">Open GitHub</a>
+                <div class="status-badge">Status: ${escapeHtml(row.review_status || '—')}</div>
               </div>
 
               <div class="score-row">
@@ -333,7 +333,10 @@
                 <span class="pill"><strong>Overall</strong> ${escapeHtml(row.technical_overall_score || '0')}</span>
                 <span class="pill"><strong>Segmentation</strong> ${escapeHtml(row.segmentation_score || '0')}</span>
                 <span class="pill"><strong>Interop</strong> ${escapeHtml(row.sql_python_interop_score || '0')}</span>
+                <span class="pill"><strong>Commenting</strong> ${escapeHtml(row.commenting_quality_score || '0')}</span>
+                <span class="pill"><strong>Structuring</strong> ${escapeHtml(row.sql_structuring_score || '0')}</span>
                 <span class="pill"><strong>Junior analyst fit</strong> ${escapeHtml(row.fit_for_junior_data_analyst || '—')}</span>
+                <span class="pill"><strong>Collections fit</strong> ${escapeHtml(row.fit_for_collections_analytics || '—')}</span>
               </div>
 
               <p class="summary">${escapeHtml(row.evidence_summary || '')}</p>
@@ -393,7 +396,9 @@
             r.key_strengths,
             r.key_gaps,
             r.red_flags,
-            r.fit_for_junior_data_analyst
+            r.fit_for_junior_data_analyst,
+            r.fit_for_collections_analytics,
+            r.review_status
           ].join(' ').toLowerCase();
           return haystack.includes(q);
         });
